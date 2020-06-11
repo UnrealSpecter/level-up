@@ -1,0 +1,27 @@
+/* TAILWIND BASE UTILITIES */
+@import "tailwindcss/base";
+
+@import "./core/base-styles.css";
+
+/* TAILWIND BASE UTILITIES */
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* CORE UTILLITIES */
+/* @import "./core/font-size.css"; */
+/* @import "./core/colors.css"; */
+@import "./core/icon-size.css";
+
+/* TRANSITIONS */
+@import "./transitions/transition-property.css";
+@import "./transitions/transition-duration.css";
+@import "./transitions/transition-easing.css";
+@import "./transitions/transition-origin.css";
+@import "./transitions/transition-scale.css";
+
+/* THEME */
+@import "_variables";
+
+/* COMPONENTS */
+
+/* BLOG COMPONENT */

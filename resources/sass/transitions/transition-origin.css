@@ -1,0 +1,35 @@
+@responsive {
+
+    .origin-center {
+        transform-origin: center;
+    }
+
+    .origin-top {
+        transform-origin: top;
+    }
+
+    .origin-bottom {
+        transform-origin: bottom;
+    }
+
+    .origin-left {
+        transform-origin: left;
+    }
+
+    .origin-top-right {
+        transform-origin: top right;
+    }
+
+    .origin-top-left {
+        transform-origin: top left;
+    }
+
+    .origin-bottom-right {
+        transform-origin: bottom right;
+    }
+
+    .origin-bottom-left {
+        transform-origin: bottom left;
+    }
+
+}

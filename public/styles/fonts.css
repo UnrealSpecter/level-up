@@ -1,0 +1,17 @@
+.montserrat-regular {
+    font-family: montserrat,sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.montserrat-bold {
+    font-family: montserrat,sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.montserrat-black {
+    font-family: montserrat,sans-serif;
+    font-weight: 900;
+    font-style: normal;
+}

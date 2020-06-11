@@ -1,0 +1,7 @@
+@responsive {
+
+    .transition-all {
+        transition-property: all;
+    }
+    
+}
