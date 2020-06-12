@@ -6,9 +6,11 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+
 class User extends Authenticatable
 {
     use Notifiable;
+    use \Staudenmeir\EloquentHasManyDeep\HasRelationships;
 
     /**
      * The attributes that are mass assignable.
@@ -37,6 +39,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function getNameAttribute()
+    {
+        return $this->first_name . ' ' . $this->last_name;
+    }
 
     /**
      * The lesson that belong to a user
@@ -49,12 +55,10 @@ class User extends Authenticatable
     /**
      * The assignments that belong to a user
      */
-    public function assignments()
-    {
-        return $this->belongsToMany(Assignment::class, 'user_assignment');
-    }
+     public function assignments()
+     {
+         // $user many to many lesson many to many subject many to many assignment
+         return $this->hasManyDeep('App\Assignment', ['user_lesson', Lesson::class, 'lesson_subject', Subject::class, 'subject_assignment']);
+     }
 
-    public function subjects(){
-        return $this->belongsToMany(Subject::class, 'user_subject');
-    }
 }

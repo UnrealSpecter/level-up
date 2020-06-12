@@ -10,7 +10,7 @@ class Subject extends Model
      * The assignments that belong to a subject
      */
      public function assignments(){
-         return $this->hasMany(Assignment::class);
+         return $this->belongsToMany(Assignment::class, 'subject_assignment')->withPivot('is_done');
      }
 
      /**
@@ -20,7 +20,7 @@ class Subject extends Model
           return $this->hasMany(Resource::class);
       }
 
-      public function users(){
-          return $this->belongsToMany(User::class, 'user_subject');
-      }
+      // public function users(){
+      //     return $this->belongsToMany(User::class, 'user_subject');
+      // }
 }

@@ -4,7 +4,15 @@
 @endsection
 
 @section('content')
-    username: {{ $users->first()->name }}
+
+    @foreach($users as $user)
+    <div class="min-h-screen flex justify-center items-center">
+
+        <div class="montserrat-black text-50">
+            welkom! {{ $users->first()->name }}
+        </div>
+
+    </div>
 
     <!-- CONTENT WRAPPER -->
     <div class="w-screen flex justify-center">
@@ -12,25 +20,34 @@
         <!-- MODULE CONTAINER -->
         <div class="w-3/4 flex flex-col items-center">
 
-        @foreach($users->first()->lessons as $index => $lesson)
 
-            <div class="montserrat-bold w-full rounded-20 h-150 bg-black text-white text-50 mb-50 px-50 flex items-center whitespace-no-wrap truncate">
-                @if($lesson->pivot->is_done)
-                <div class="h-75 w-75 mr-75 rounded-75 flex justify-center items-center text-black bg-white font-bold">
-                    <!-- CHECKMARK SVG -->
-                    <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/>
-                    </svg>
+        @foreach($user->lessons as $index => $lesson)
+
+            <div class="montserrat-bold w-full rounded-20 h-200 bg-black text-white text-50 mb-50 px-50 flex flex-row flex-no-wrap items-center whitespace-no-wrap truncate">
+                <div class="h-full mr-50 flex items-center">
+                    @if($lesson->pivot->is_done)
+                    <div class="h-100 w-100 rounded-100 flex justify-center items-center text-black bg-white font-bold">
+                        <!-- CHECKMARK SVG -->
+                        <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/>
+                        </svg>
+                    </div>
+                    @else
+                    <div class="h-100 w-100 rounded-100 flex justify-center items-center text-black bg-white font-bold">
+                        {{ $index + 1 }}
+                    </div>
+                    @endif
                 </div>
-                @endif
-                Lesson {{ $index + 1 }}: {{ $lesson->title}}
+                <div class="flex-grow truncate">
+                    {{ $lesson->title }}
+                </div>
             </div>
 
             @foreach($lesson->subjects as $index => $subject)
                 <div class="montserrat-regular w-full rounded-20 h-100 bg-white text-25 text-black mb-50 shadow-md px-50 flex justify-start items-center">
 
                     <!-- SUBJECT IS DONE -->
-                    @if($subject->is_done)
+                    @if($subject->pivot->is_done)
                     <div class="h-50 w-50 mr-50 rounded-50 flex justify-center items-center text-white bg-black font-bold">
                         <!-- CHECKMARK SVG -->
                         <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -44,7 +61,7 @@
                         {{ $index + 1 }}
                     </div>
                     @endif
-                     {{ $subject->title }}
+                    {{ $subject->title }}
                 </div>
 
                 <div class="subject-wrapper w-3/4 flex justify-start flex-col">
@@ -82,7 +99,7 @@
                             <div class="montserrat-regular w-full rounded-20 h-100 bg-white text-25 text-black mb-50 shadow-md px-50 flex justify-start items-center">
 
                                 <!-- ASSIGNMENT IS DONE -->
-                                @if($assignment->is_done)
+                                @if($assignment->pivot->is_done)
                                 <div class="h-50 w-50 mr-50 rounded-50 flex justify-center items-center text-white bg-black font-bold">
                                     <!-- CHECKMARK SVG -->
                                     <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -96,7 +113,7 @@
                                     {{ $index + 1 }}
                                 </div>
                                 @endif
-                                 Assignment {{ $index + 1 }}
+                                Assignment {{ $index + 1 }}
                             </div>
 
                             <!-- ASSIGNMENT DESCRIPTION -->
@@ -124,11 +141,6 @@
                     </div>
                 </div>
 
-
-
-
-
-
             @endforeach
 
         @endforeach
@@ -136,7 +148,7 @@
         </div>
 
     </div>
-
+    @endforeach
 @endsection
 
 

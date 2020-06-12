@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserSubjectTable extends Migration
+class CreateSubjectAssignmentTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateUserSubjectTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_subject', function (Blueprint $table) {
-            $table->id();
-            $table->integer('user_id')->unsigned();
+        Schema::create('subject_assignment', function (Blueprint $table) {
             $table->integer('subject_id')->unsigned();
+            $table->integer('assignment_id')->unsigned();
             $table->boolean('is_done')->default(0);
             $table->timestamps();
         });
@@ -29,6 +28,6 @@ class CreateUserSubjectTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_subject');
+        Schema::dropIfExists('subject_assignment');
     }
 }
