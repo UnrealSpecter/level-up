@@ -5,11 +5,18 @@
 
 @section('content')
 
-    @foreach($users as $user)
     <div class="min-h-screen flex justify-center items-center">
 
+        <div id="menu" class="h-100 w-screen fixed top-0 left-0 shadow-lg bg-white flex justify-between px-50 items-center montserrat-bold uppercase">
+            <a href="/">Level Up!</a>
+            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">Logout</a>
+            <form id="frm-logout" action="{{ route('logout') }}" method="POST" class="hidden">
+            {{ csrf_field() }}
+            </form>
+        </div>
+
         <div class="montserrat-black text-50">
-            welkom! {{ $users->first()->name }}
+            Welkom! Bij de Module. {{ $module->title }}
         </div>
 
     </div>
@@ -20,8 +27,7 @@
         <!-- MODULE CONTAINER -->
         <div class="w-3/4 flex flex-col items-center">
 
-
-        @foreach($user->lessons as $index => $lesson)
+        @foreach($module->lessons as $index => $lesson)
 
             <div class="montserrat-bold w-full rounded-20 h-200 bg-black text-white text-50 mb-50 px-50 flex flex-row flex-no-wrap items-center whitespace-no-wrap truncate">
                 <div class="h-full mr-50 flex items-center">
@@ -148,7 +154,6 @@
         </div>
 
     </div>
-    @endforeach
 @endsection
 
 

@@ -21,4 +21,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/users', 'UserController@index')->name('user-dashboard');
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard-page');
+Route::get('/dashboard/modules/{id}', 'DashboardController@show')->name('module-page');

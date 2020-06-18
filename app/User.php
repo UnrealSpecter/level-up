@@ -10,7 +10,6 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use Notifiable;
-    use \Staudenmeir\EloquentHasManyDeep\HasRelationships;
 
     /**
      * The attributes that are mass assignable.
@@ -47,18 +46,9 @@ class User extends Authenticatable
     /**
      * The lesson that belong to a user
      */
-    public function lessons()
+    public function levels()
     {
-        return $this->belongsToMany(Lesson::class, 'user_lesson')->withPivot('is_done');
+        return $this->belongsToMany(Level::class, 'user_level')->withPivot('is_done');
     }
-
-    /**
-     * The assignments that belong to a user
-     */
-     public function assignments()
-     {
-         // $user many to many lesson many to many subject many to many assignment
-         return $this->hasManyDeep('App\Assignment', ['user_lesson', Lesson::class, 'lesson_subject', Subject::class, 'subject_assignment']);
-     }
 
 }

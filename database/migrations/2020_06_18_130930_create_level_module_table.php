@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCoursesTable extends Migration
+class CreateLevelModuleTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class CreateCoursesTable extends Migration
      */
     public function up()
     {
-        Schema::create('courses', function (Blueprint $table) {
-            $table->id();
+        Schema::create('level_module', function (Blueprint $table) {
+            $table->integer('level_id')->unsigned();
+            $table->integer('module_id')->unsigned();
+            $table->boolean('is_done')->default(0);
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ class CreateCoursesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('courses');
+        Schema::dropIfExists('level_module');
     }
 }

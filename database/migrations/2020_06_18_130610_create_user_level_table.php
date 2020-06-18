@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLevelSTable extends Migration
+class CreateUserLevelTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateLevelSTable extends Migration
      */
     public function up()
     {
-        Schema::create('levels', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->string('code');
-            $table->longtext('description');
+        Schema::create('user_level', function (Blueprint $table) {
+            $table->integer('user_id')->unsigned();
+            $table->integer('level_id')->unsigned();
+            $table->boolean('is_done')->default(0);
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreateLevelSTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('levels');
+        Schema::dropIfExists('user_level');
     }
 }
