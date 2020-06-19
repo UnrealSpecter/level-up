@@ -9,21 +9,21 @@ use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class Level extends Resource
+class Assignment extends Resource
 {
     /**
     * The side nav menu order.
     *
     * @var int
     */
-    public static $priority = 3;
-    
+    public static $priority = 7;
+
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Level::class;
+    public static $model = \App\Assignment::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -52,14 +52,13 @@ class Level extends Resource
         return [
             ID::make()->sortable()->hideFromIndex(),
             Text::make('title'),
-            Text::make('code'),
             Textarea::make('description'),
-            BelongsToMany::make('Users')->fields(function () {
+            BelongsToMany::make('Subjects')->fields(function () {
                 return [
                     Text::make('is_done'),
                 ];
             }),
-            BelongsToMany::make('Modules')->fields(function () {
+            BelongsToMany::make('Answers')->fields(function () {
                 return [
                     Text::make('is_done'),
                 ];

@@ -24,7 +24,7 @@ class DashboardController extends Controller
 
     public function show($id){
 
-        $module = Module::with('lessons.subjects.resources', 'lessons.subjects.assignments.answers')->get()->first();
+        $module = Module::with('lessons.subjects.resources.tags', 'lessons.subjects.assignments.answers')->get()->first();
 
         return view('dashboard.show')->with('module', $module);
     }

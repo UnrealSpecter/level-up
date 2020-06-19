@@ -8,7 +8,7 @@ use Faker\Generator as Faker;
 
 $factory->define(Assignment::class, function (Faker $faker) {
     return [
-        'question' => $faker->sentence($nbWords = 6, $variableNbWords = true),
+        'title' => $faker->sentence($nbWords = 6, $variableNbWords = true),
         'description' => $faker->paragraph($nbSentences = 3, $variableNbSentences = true)
     ];
 });

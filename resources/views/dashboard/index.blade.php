@@ -31,6 +31,7 @@
             <div class="rounded-20 px-100 w-full mb-50 h-200 bg-black text-white flex justify-center items-center montserrat-bold text-50 truncate whitespace-no-wrap">
                 {{ $level->title }}
             </div>
+
             <div class="w-full p-50 grid gap-50 grid-cols-3">
                 @foreach($level->modules as $module)
                  <div class="module rounded-20 p-25 h-300 shadow-md text-black flex flex-col items-center justify-center">
@@ -39,6 +40,7 @@
                  </div>
                 @endforeach
             </div>
+            
             @endforeach
 
         </div>

@@ -7,23 +7,24 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\BelongsToMany;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class Level extends Resource
+class Subject extends Resource
 {
     /**
     * The side nav menu order.
     *
     * @var int
     */
-    public static $priority = 3;
-    
+    public static $priority = 6;
+
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Level::class;
+    public static $model = \App\Subject::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -52,14 +53,14 @@ class Level extends Resource
         return [
             ID::make()->sortable()->hideFromIndex(),
             Text::make('title'),
-            Text::make('code'),
             Textarea::make('description'),
-            BelongsToMany::make('Users')->fields(function () {
+            BelongsToMany::make('Lessons')->fields(function () {
                 return [
                     Text::make('is_done'),
                 ];
             }),
-            BelongsToMany::make('Modules')->fields(function () {
+            // HasMany::make(Resource::class),
+            BelongsToMany::make('Assignments')->fields(function () {
                 return [
                     Text::make('is_done'),
                 ];

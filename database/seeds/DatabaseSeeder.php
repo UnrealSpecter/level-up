@@ -14,10 +14,14 @@ class DatabaseSeeder extends Seeder
 
         //create a module
         //create a lesson
-        $courses = factory(App\Course::class, 3)->make();
+        factory(App\Course::class, 3)->create();
+
         //create a user
         factory(App\User::class, 1)->create()->each(function ($user) {
 
+            //create tags for later use
+            $tags = factory(App\Tag::class, 2)->create();
+            
             //create and assign levels to a user.
             $levels = factory(App\Level::class, 3)->make();
             $user->levels()->saveMany($levels);
@@ -59,6 +63,10 @@ class DatabaseSeeder extends Seeder
                             $resources = factory(App\Resource::class, 3)->make();
                             $subject->resources()->saveMany($resources);
 
+                            foreach($resources as $resource){
+                                $resource->tags()->saveMany($tags);
+                            }
+
                             //create and assign assignments to subject
                             $assignments = factory(App\Assignment::class, 3)->make();
                             $subject->assignments()->saveMany($assignments);
@@ -71,8 +79,7 @@ class DatabaseSeeder extends Seeder
                                 // create and assign answers to a assignment
                                 $answers = factory(App\Answer::class, 3)->make();
                                 foreach($answers as $answer){
-                                    $answer->is_correct = mt_rand(0, 1);
-                                    $answer->save();
+                                    $assignment->answers()->updateExistingPivot($answer->id, ['is_done' => mt_rand(0,1)]);
                                 }
                                 $assignment->answers()->saveMany($answers);
                             }

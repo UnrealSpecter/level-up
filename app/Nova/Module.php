@@ -7,10 +7,18 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\BelongsToMany;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Module extends Resource
 {
+    /**
+    * The side nav menu order.
+    *
+    * @var int
+    */
+    public static $priority = 4;
+
     /**
      * The model the resource corresponds to.
      *
@@ -51,6 +59,12 @@ class Module extends Resource
                     Text::make('is_done'),
                 ];
             }),
+            BelongsToMany::make('Lessons')->fields(function () {
+                return [
+                    Text::make('is_done'),
+                ];
+            }),
+            BelongsTo::make('Course')
         ];
     }
 

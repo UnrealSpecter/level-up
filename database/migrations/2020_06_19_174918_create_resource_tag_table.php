@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAssignmentsTable extends Migration
+class CreateResourceTagTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateAssignmentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('assignments', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->longtext('description');
+        Schema::create('resource_tag', function (Blueprint $table) {
+            $table->integer('resource_id')->unsigned();
+            $table->integer('tag_id')->unsigned();
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class CreateAssignmentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('assignments');
+        Schema::dropIfExists('resource_tag');
     }
 }

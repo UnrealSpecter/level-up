@@ -12,6 +12,13 @@ use Laravel\Nova\Fields\BelongsToMany;
 class User extends Resource
 {
     /**
+    * The side nav menu order.
+    *
+    * @var int
+    */
+    public static $priority = 1;
+
+    /**
      * The model the resource corresponds to.
      *
      * @var string

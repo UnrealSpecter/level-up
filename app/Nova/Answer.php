@@ -4,33 +4,33 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class Level extends Resource
+class Answer extends Resource
 {
     /**
     * The side nav menu order.
     *
     * @var int
     */
-    public static $priority = 3;
-    
+    public static $priority = 8;
+
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Level::class;
+    public static $model = \App\Answer::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'title';
+    public static $title = 'answer';
 
     /**
      * The columns that should be searched.
@@ -38,7 +38,7 @@ class Level extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'title', 'description'
+        'id', 'answer', 'is_correct'
     ];
 
     /**
@@ -51,15 +51,9 @@ class Level extends Resource
     {
         return [
             ID::make()->sortable()->hideFromIndex(),
-            Text::make('title'),
-            Text::make('code'),
-            Textarea::make('description'),
-            BelongsToMany::make('Users')->fields(function () {
-                return [
-                    Text::make('is_done'),
-                ];
-            }),
-            BelongsToMany::make('Modules')->fields(function () {
+            Text::make('answer'),
+            Boolean::make('is_correct'),
+            BelongsToMany::make('Assignments')->fields(function () {
                 return [
                     Text::make('is_done'),
                 ];

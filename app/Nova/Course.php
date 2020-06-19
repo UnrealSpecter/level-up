@@ -6,10 +6,18 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Course extends Resource
 {
+    /**
+    * The side nav menu order.
+    *
+    * @var int
+    */
+    public static $priority = 2;
+
     /**
      * The model the resource corresponds to.
      *
@@ -45,6 +53,7 @@ class Course extends Resource
             ID::make()->sortable()->hideFromIndex(),
             Text::make('title'),
             Textarea::make('description'),
+            HasMany::make('Modules')
         ];
     }
 

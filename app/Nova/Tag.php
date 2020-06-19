@@ -4,33 +4,26 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class Level extends Resource
+class Tag extends Resource
 {
-    /**
-    * The side nav menu order.
-    *
-    * @var int
-    */
-    public static $priority = 3;
-    
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Level::class;
+    public static $model = \App\Tag::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'title';
+    public static $title = 'label';
 
     /**
      * The columns that should be searched.
@@ -38,7 +31,7 @@ class Level extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'title', 'description'
+        'id', 'label'
     ];
 
     /**
@@ -51,19 +44,9 @@ class Level extends Resource
     {
         return [
             ID::make()->sortable()->hideFromIndex(),
-            Text::make('title'),
-            Text::make('code'),
-            Textarea::make('description'),
-            BelongsToMany::make('Users')->fields(function () {
-                return [
-                    Text::make('is_done'),
-                ];
-            }),
-            BelongsToMany::make('Modules')->fields(function () {
-                return [
-                    Text::make('is_done'),
-                ];
-            }),
+            Text::make('label'),
+            Image::make('icon')
+            // BelongsToMany::make('Resources')
         ];
     }
 
