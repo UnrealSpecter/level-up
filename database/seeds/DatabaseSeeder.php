@@ -17,11 +17,11 @@ class DatabaseSeeder extends Seeder
         factory(App\Course::class, 3)->create();
 
         //create a user
-        factory(App\User::class, 1)->create()->each(function ($user) {
+        factory(App\User::class, 2)->create()->each(function ($user) {
 
             //create tags for later use
             $tags = factory(App\Tag::class, 2)->create();
-            
+
             //create and assign levels to a user.
             $levels = factory(App\Level::class, 3)->make();
             $user->levels()->saveMany($levels);
