@@ -4,35 +4,25 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Textarea;
-use Laravel\Nova\Fields\BelongsToMany;
+use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Fields\BelongsTo;
-use Laravel\Nova\Fields\HasOne;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class Module extends Resource
+class Introduction extends Resource
 {
-    /**
-    * The side nav menu order.
-    *
-    * @var int
-    */
-    public static $priority = 4;
-
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Module::class;
+    public static $model = \App\Introduction::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'title';
+    public static $title = 'id';
 
     /**
      * The columns that should be searched.
@@ -40,7 +30,7 @@ class Module extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'title', 'description'
+        'id',
     ];
 
     /**
@@ -53,20 +43,8 @@ class Module extends Resource
     {
         return [
             ID::make()->sortable()->hideFromIndex(),
-            Text::make('title'),
-            Textarea::make('description'),
-            BelongsToMany::make('Levels')->fields(function () {
-                return [
-                    Text::make('is_done'),
-                ];
-            }),
-            BelongsToMany::make('Lessons')->fields(function () {
-                return [
-                    Text::make('is_done'),
-                ];
-            }),
-            BelongsTo::make('Course'),
-            HasOne::make('Introduction')
+            Trix::make('body'),
+            BelongsTo::make('Module'),
         ];
     }
 

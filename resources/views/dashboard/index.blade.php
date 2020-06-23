@@ -5,15 +5,16 @@
 
 @section('content')
 
-    <div class="min-h-screen flex justify-center items-center">
+    <div id="menu" class="z-50 h-100 w-screen fixed top-0 left-0 shadow-lg bg-white flex justify-between px-50 items-center montserrat-bold uppercase">
+        <a href="/">Level Up!</a>
+        <a href="{{ route('dashboard-page') }}">Dashboard</a>
+        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">Logout</a>
+        <form id="frm-logout" action="{{ route('logout') }}" method="POST" class="hidden">
+        {{ csrf_field() }}
+        </form>
+    </div>
 
-        <div id="menu" class="h-100 w-screen fixed top-0 left-0 shadow-lg bg-white flex justify-between px-50 items-center montserrat-bold uppercase">
-            <a href="/">Level Up!</a>
-            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">Logout</a>
-            <form id="frm-logout" action="{{ route('logout') }}" method="POST" class="hidden">
-            {{ csrf_field() }}
-            </form>
-        </div>
+    <div class="min-h-screen flex justify-center items-center">
 
         <div class="montserrat-black text-50 text-center">
             welkom! <br /> {{ $user->name }}
@@ -27,20 +28,14 @@
         <!-- MODULE CONTAINER -->
         <div class="w-3/4 flex flex-col items-center">
 
+            <h1 class="text-50 mb-50 ">Level Overview</h1>
             @foreach($user->levels as $index => $level)
-            <div class="rounded-20 px-100 w-full mb-50 h-200 bg-black text-white flex justify-center items-center montserrat-bold text-50 truncate whitespace-no-wrap">
-                {{ $level->title }}
-            </div>
+            <level :index="{{ json_encode($index + 1) }}" :level="{{ $level }}"></level>
+            @endforeach
 
-            <div class="w-full p-50 grid gap-50 grid-cols-3">
-                @foreach($level->modules as $module)
-                 <div class="module rounded-20 p-25 h-300 shadow-md text-black flex flex-col items-center justify-center">
-                     {{ $module->title }}
-                     <a href="{{ route('module-page', [$module->id]) }}">start module</a>
-                 </div>
-                @endforeach
-            </div>
-            
+            <h1 class="text-50 mb-50 ">Course Overview</h1>
+            @foreach($courses as $index => $course)
+            <course :index="{{ json_encode($index + 1) }}" :course="{{ $course }}"></course>
             @endforeach
 
         </div>

@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Module extends Model
 {
+    public function introduction(){
+        return $this->hasOne(Introduction::class);
+    }
+    
     /**
      * The lesson that belong to a user
      */
