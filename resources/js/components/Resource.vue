@@ -6,14 +6,14 @@
 
             <!-- TAGS -->
             <div class="tag-wrapper flex flex-row justify-center mb-25">
-                <div v-for="(tag, index) in resource.tags" :key="index" class="mr-10 flex flex-row flex-no-wrap rounded-20 px-10 py-5 shadow-md justify-center items-center">
+                <div v-for="(tag, index) in resource.tags" :key="index" class="mr-10 flex flex-row flex-no-wrap rounded-20 pl-10 pr-15 py-5 shadow justify-center items-center">
                     <img :src="`/assets/icons/${ tag.icon }`" class="w-25 mr-10">
-                    <div class="montserrat-bold uppercase">{{ tag.label }}</div>
+                    <div class="montserrat-bold mt-5">{{ tag.label }}</div>
                 </div>
             </div>
 
             <!-- VOTE SYSTEM -->
-            <div class="shadow-md bg-white p-10 rounded-20 likes w-3/4 montserrat-regular text-center mb-25 flex flex-row flex-no-wrap justify-center items-center">
+            <div class="shadow bg-white p-10 rounded-20 likes w-3/4 montserrat-regular text-center mb-25 flex flex-row flex-no-wrap justify-center items-center">
 
                 <img src="/assets/icons/vote-icons/upvote.svg" class="w-25 h-25 cursor-pointer z-10">
 
@@ -30,7 +30,7 @@
         </div>
 
         <!-- LINK -->
-        <a :href="`${ resource.link }`" target="_blank" class="w-full rounded-20 h-50 shadow-md flex justify-center items-center uppercase font-bold text-white bg-black">bekijk</a>
+        <a :href="`${ resource.link }`" target="_blank" class="w-full rounded-20 h-50 shadow flex justify-center items-center uppercase font-bold text-white bg-black">bekijk</a>
     </div>
 
 </template>

@@ -1,5 +1,3 @@
-
-
 <template>
 
     <div class="w-full flex flex-col items-end">
@@ -39,7 +37,36 @@
                 <p class="lesson-description montserrat-regular text-20 text-black">{{ subject.description }}</p>
             </div>
 
-            <slot></slot>
+            <!-- RESOURCES WRAPPER -->
+            <div class="flex flex-col">
+
+                <div class="resource-title montserrat-bold text-40 text-black mb-25">De Resources</div>
+
+                <!-- RESOURCE TAG FILTER -->
+                <div class="tag-wrapper overflow-hidden flex flex-row justify-start items-center mb-25 shadow-md rounded-10">
+                    <div class="mr-25 p-25 montserrat-bold text-20 uppercase bg-black text-white">tag filter</div>
+                    <div v-for="(tag, index) in subject.resources[0].tags" :key="index" class="shadow mr-10 flex flex-row flex-no-wrap rounded-20 pl-10 pr-15 py-5 justify-center items-center">
+                        <img :src="`/assets/icons/${ tag.icon }`" class="w-25 mr-10">
+                        <div class="montserrat-bold mt-5">{{ tag.label }}</div>
+                    </div>
+                </div>
+
+                <!-- RESOURCES -->
+                <div class="w-full grid grid-cols-3 gap-50 mb-50">
+                    <resource v-for="(resource, index) in subject.resources" :key="index" :resource="resource"></resource>
+                </div>
+            </div>
+
+            <!-- ASSIGNMENT DESCRIPTION -->
+            <div class="w-full mb-50">
+                <div class="lesson-description-title montserrat-bold text-40 text-black mb-25">De Opdrachten</div>
+                <p class="lesson-description montserrat-regular text-20 text-black">Hier zou nog een uitgebreide inleiding kunnen komen bij de opdrachten die horen bij deze les. Zoals tips of hints of aandachtspunten.</p>
+            </div>
+
+            <div id="assignment-wrapper" class="w-full">
+                <assignment v-for="(assignment, index) in subject.assignments" :key="index" :index="index + 1" :assignment="assignment"></assignment>
+            </div>
+
 
         </div>
 

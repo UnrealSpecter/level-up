@@ -31,7 +31,9 @@
 
         <!-- SUBJECT SLOT -->
         <div :class="{ hidden: isOpen }" class="subjects-wrapper w-full flex flex-col">
-            <slot></slot>
+
+            <subject v-for="(subject, index) in lesson.subjects" :key="index" :index="index + 1 " :subject="subject"></subject>
+
         </div>
 
     </div>
