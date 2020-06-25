@@ -9,6 +9,6 @@ class Answer extends Model
     protected $fillable = ['answer', 'is_correct'];
 
     public function assignments(){
-        return $this->belongsToMany(Assignment::class, 'assignment_answer')->withPivot('is_done');
+        return $this->belongsToMany(Assignment::class, 'assignment_answer');
     }
 }

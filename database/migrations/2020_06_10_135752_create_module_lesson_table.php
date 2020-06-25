@@ -16,7 +16,6 @@ class CreateModuleLessonTable extends Migration
         Schema::create('module_lesson', function (Blueprint $table) {
             $table->integer('module_id')->unsigned();
             $table->integer('lesson_id')->unsigned();
-            $table->boolean('is_done')->default(0);
             $table->timestamps();
         });
     }

@@ -16,7 +16,6 @@ class CreateSubjectAssignmentTable extends Migration
         Schema::create('subject_assignment', function (Blueprint $table) {
             $table->integer('subject_id')->unsigned();
             $table->integer('assignment_id')->unsigned();
-            $table->boolean('is_done')->default(0);
             $table->timestamps();
         });
     }

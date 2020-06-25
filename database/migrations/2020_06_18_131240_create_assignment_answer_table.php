@@ -16,7 +16,6 @@ class CreateAssignmentAnswerTable extends Migration
         Schema::create('assignment_answer', function (Blueprint $table) {
             $table->integer('assignment_id')->unsigned();
             $table->integer('answer_id')->unsigned();
-            $table->boolean('is_done')->default(0);
             $table->timestamps();
         });
     }

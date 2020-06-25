@@ -15,11 +15,11 @@ class Level extends Model
      */
     public function modules()
     {
-        return $this->belongsToMany(Module::class, 'level_module')->withPivot('is_done');
+        return $this->belongsToMany(Module::class, 'level_module');
     }
 
     public function users(){
-        return $this->belongsToMany(User::class, 'user_level')->withPivot('is_done');
+        return $this->belongsToMany(User::class, 'user_level');
     }
 
     public function getIsDoneAttribute(){

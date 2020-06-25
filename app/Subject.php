@@ -13,14 +13,14 @@ class Subject extends Model
     * The assignments that belong to a subject
     */
     public function lessons(){
-        return $this->belongsToMany(Lesson::class, 'lesson_subject')->withPivot('is_done');
+        return $this->belongsToMany(Lesson::class, 'lesson_subject');
     }
 
     /**
     * The assignments that belong to a subject
     */
     public function assignments(){
-        return $this->belongsToMany(Assignment::class, 'subject_assignment')->withPivot('is_done');
+        return $this->belongsToMany(Assignment::class, 'subject_assignment');
     }
 
     /**

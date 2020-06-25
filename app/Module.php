@@ -18,7 +18,7 @@ class Module extends Model
      */
     public function lessons()
     {
-        return $this->belongsToMany(Lesson::class, 'module_lesson')->withPivot('is_done');
+        return $this->belongsToMany(Lesson::class, 'module_lesson');
     }
 
     public function course(){
@@ -26,7 +26,7 @@ class Module extends Model
     }
 
     public function levels(){
-        return $this->belongsToMany(Level::class, 'level_module')->withPivot('is_done');
+        return $this->belongsToMany(Level::class, 'level_module');
     }
 
     public function getIsDoneAttribute() {

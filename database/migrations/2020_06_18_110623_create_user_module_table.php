@@ -17,7 +17,6 @@ class CreateUserModuleTable extends Migration
             $table->id();
             $table->integer('user_id')->unsigned();
             $table->integer('module_id')->unsigned();
-            $table->boolean('is_done')->default(0);
             $table->timestamps();
         });
     }

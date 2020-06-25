@@ -17,7 +17,6 @@ class CreateLessonSubjectTable extends Migration
             $table->id();
             $table->integer('lesson_id')->unsigned();
             $table->integer('subject_id')->unsigned();
-            $table->boolean('is_done')->default(0);
             $table->timestamps();
         });
     }

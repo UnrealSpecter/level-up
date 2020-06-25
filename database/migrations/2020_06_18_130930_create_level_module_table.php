@@ -16,7 +16,6 @@ class CreateLevelModuleTable extends Migration
         Schema::create('level_module', function (Blueprint $table) {
             $table->integer('level_id')->unsigned();
             $table->integer('module_id')->unsigned();
-            $table->boolean('is_done')->default(0);
             $table->timestamps();
         });
     }
