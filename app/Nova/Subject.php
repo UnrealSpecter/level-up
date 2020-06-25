@@ -59,7 +59,7 @@ class Subject extends Resource
                     Text::make('is_done'),
                 ];
             }),
-            // HasMany::make(Resource::class),
+            HasMany::make(Material::class),
             BelongsToMany::make('Assignments')->fields(function () {
                 return [
                     Text::make('is_done'),

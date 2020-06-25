@@ -17,7 +17,7 @@
 
         <!-- MODULE CARD -->
         <div class="w-full grid gap-50 grid-cols-3 mb-50">
-             <module :module="module" v-for="module in course.modules" :key="module.id"></module>
+             <module-card :module="module" v-for="(module, index) in course.modules" :key="index"></module-card>
         </div>
 
     </div>

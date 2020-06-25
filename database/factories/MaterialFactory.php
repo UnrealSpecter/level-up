@@ -2,11 +2,11 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Resource;
+use App\Material;
 use Faker\Provider\Internet;
 use Faker\Generator as Faker;
 
-$factory->define(Resource::class, function (Faker $faker) {
+$factory->define(Material::class, function (Faker $faker) {
     return [
         'title' => $faker->sentence($nbWords = 6, $variableNbWords = true),
         'link' => $faker->url

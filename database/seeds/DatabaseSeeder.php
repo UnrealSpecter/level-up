@@ -60,11 +60,11 @@ class DatabaseSeeder extends Seeder
                             // $lesson->subjects()->updateExistingPivot($subject->id, ['is_done' => mt_rand(0,1)]);
 
                             // create and assign resources to subject.
-                            $resources = factory(App\Resource::class, 3)->make();
-                            $subject->resources()->saveMany($resources);
+                            $materials = factory(App\Material::class, 3)->make();
+                            $subject->materials()->saveMany($materials);
 
-                            foreach($resources as $resource){
-                                $resource->tags()->saveMany($tags);
+                            foreach($materials as $material){
+                                $material->tags()->saveMany($tags);
                             }
 
                             //create and assign assignments to subject
@@ -79,7 +79,7 @@ class DatabaseSeeder extends Seeder
                                 // create and assign answers to a assignment
                                 $answers = factory(App\Answer::class, 3)->make();
                                 foreach($answers as $answer){
-                                    // $assignment->answers()->updateExistingPivot($answer->id, ['is_done' => mt_rand(0,1)]);
+                                    $assignment->answers()->updateExistingPivot($answer->id, ['is_done' => 1]);
                                 }
                                 $assignment->answers()->saveMany($answers);
                             }

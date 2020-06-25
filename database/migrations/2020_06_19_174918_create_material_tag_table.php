@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateResourcesTable extends Migration
+class CreateMaterialTagTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateResourcesTable extends Migration
      */
     public function up()
     {
-        Schema::create('resources', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->string('link');
-            $table->unsignedBigInteger('subject_id')->nullable();
-            $table->foreign('subject_id')->references('id')->on('subjects');
+        Schema::create('material_tag', function (Blueprint $table) {
+            $table->integer('material_id')->unsigned();
+            $table->integer('tag_id')->unsigned();
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ class CreateResourcesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('resources');
+        Schema::dropIfExists('material_tag');
     }
 }

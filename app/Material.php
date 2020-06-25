@@ -4,10 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Resource extends Model
+class Material extends Model
 {
+    protected $fillable = ['title', 'link'];
+
     public function tags(){
-        return $this->belongsToMany(Tag::class, 'resource_tag');
+        return $this->belongsToMany(Tag::class, 'material_tag');
     }
 
     public function subject(){

@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tag extends Model
 {
-    public function resources(){
-        return $this->belongsToMany(Resource::class, 'resource_tag');
+    protected $fillable = ['label', 'icon'];
+
+    public function materials(){
+        return $this->belongsToMany(Material::class, 'material_tag');
     }
 }

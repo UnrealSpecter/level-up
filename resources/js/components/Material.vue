@@ -1,12 +1,12 @@
 <template>
 
-    <div class="col-span-1 resource rounded-20 h-300 py-25 px-50 text-15 shadow-md flex flex-col">
+    <div class="col-span-1 rounded-20 h-300 py-25 px-50 text-15 shadow-md flex flex-col">
 
         <div class="title text-center flex flex-col flex-grow justify-center items-center">
 
             <!-- TAGS -->
             <div class="tag-wrapper flex flex-row justify-center mb-25">
-                <div v-for="(tag, index) in resource.tags" :key="index" class="mr-10 flex flex-row flex-no-wrap rounded-20 pl-10 pr-15 py-5 shadow justify-center items-center">
+                <div v-for="(tag, index) in material.tags" :key="index" class="mr-10 flex flex-row flex-no-wrap rounded-20 pl-10 pr-15 py-5 shadow justify-center items-center">
                     <img :src="`/assets/icons/${ tag.icon }`" class="w-25 mr-10">
                     <div class="montserrat-bold mt-5">{{ tag.label }}</div>
                 </div>
@@ -24,19 +24,19 @@
             </div>
 
             <div class="w-full montserrat-regular flex justify-center items-center">
-                {{ resource.title }}
+                {{ material.title }}
             </div>
 
         </div>
 
         <!-- LINK -->
-        <a :href="`${ resource.link }`" target="_blank" class="w-full rounded-20 h-50 shadow flex justify-center items-center uppercase font-bold text-white bg-black">bekijk</a>
+        <a :href="`${ material.link }`" target="_blank" class="w-full rounded-20 h-50 shadow flex justify-center items-center uppercase font-bold text-white bg-black">bekijk</a>
     </div>
 
 </template>
 
 <script>
     export default {
-        props: ['resource']
+        props: ['material']
     }
 </script>

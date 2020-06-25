@@ -16,6 +16,7 @@ class CreateModulesTable extends Migration
         Schema::create('modules', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('code');
             $table->longtext('description');
             $table->unsignedBigInteger('course_id')->nullable();
             $table->foreign('course_id')->references('id')->on('courses');

@@ -2,38 +2,12 @@
 
 namespace App;
 
-Use Fico7489\Laravel\Pivot\Traits\PivotEventTrait;
 use Illuminate\Database\Eloquent\Model;
 
 class Subject extends Model
 {
-    use PivotEventTrait;
-
-    public static function boot()
-    {
-        parent::boot();
-
-        static::pivotUpdated(function ($model, $relationName, $pivotIds, $pivotIdsAttributes) {
-
-            $subject = $model;
-
-            $children = $subject->assignments;
-
-            $subjectIsDone = true;
-
-            foreach($children as $child){
-                if(!$child->pivot->is_done){
-                    $subjectIsDone = false;
-                }
-            }
-
-            if($subjectIsDone){
-                $subject->isDone();
-            }
-
-        });
-
-    }
+    protected $appends = ['is_done'];
+    protected $fillable = ['title', 'description'];
 
     /**
     * The assignments that belong to a subject
@@ -52,8 +26,8 @@ class Subject extends Model
     /**
     * The resources that belong to a subject
     */
-    public function resources(){
-        return $this->hasMany(Resource::class);
+    public function materials(){
+        return $this->hasMany(Material::class);
     }
 
     /**
@@ -70,9 +44,17 @@ class Subject extends Model
     //
     // }
 
-    public function isDone(){
-        $parent = $this->lessons()->first();
-        $parent->subjects()->updateExistingPivot($this->id, ['is_done' => 1]);
+    public function getIsDoneAttribute() {
+        $children = $this->assignments;
+        $isDone = true;
+
+        foreach($children as $child){
+            if(!$child->isDone){
+                $isDone = false;
+            }
+        }
+
+        return $isDone;
     }
 
 }

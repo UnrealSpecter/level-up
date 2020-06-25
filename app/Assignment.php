@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Assignment extends Model
 {
+    protected $appends = ['is_done'];
+    protected $fillable = ['title', 'description'];
     /*
     * The Answers belonging to a Assignment.
     */
@@ -30,6 +32,21 @@ class Assignment extends Model
         }
 
         return $this;
+    }
+
+    public function getIsDoneAttribute() {
+
+        return false;
+        // $children = $this->answers;
+        // $isDone = true;
+        //
+        // foreach($children as $child){
+        //     if(!$child->isDone){
+        //         $isDone = false;
+        //     }
+        // }
+        //
+        // return $isDone;
     }
 
 }

@@ -10,14 +10,14 @@ use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class NovaResource extends Resource
+class Material extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Resource::class;
+    public static $model = \App\Material::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.

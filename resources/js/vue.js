@@ -27,7 +27,7 @@ Vue.component('lesson', require('./components/Lesson.vue').default);
 Vue.component('subject', require('./components/Subject.vue').default);
 Vue.component('assignment', require('./components/Assignment.vue').default);
 Vue.component('answer', require('./components/Answer.vue').default);
-Vue.component('resource', require('./components/Resource.vue').default);
+Vue.component('material', require('./components/Material.vue').default);
 Vue.component('introduction', require('./components/Introduction.vue').default);
 
 /**
