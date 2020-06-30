@@ -40,7 +40,7 @@ class Module extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'title', 'description'
+        'id', 'title', 'code', 'description'
     ];
 
     /**
@@ -54,17 +54,10 @@ class Module extends Resource
         return [
             ID::make()->sortable()->hideFromIndex(),
             Text::make('title'),
+            Text::make('code'),
             Textarea::make('description'),
-            BelongsToMany::make('Levels')->fields(function () {
-                return [
-                    Text::make('is_done'),
-                ];
-            }),
-            BelongsToMany::make('Lessons')->fields(function () {
-                return [
-                    Text::make('is_done'),
-                ];
-            }),
+            BelongsToMany::make('Levels'),
+            BelongsToMany::make('Lessons'),
             BelongsTo::make('Course'),
             HasOne::make('Introduction')
         ];

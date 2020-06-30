@@ -3,7 +3,7 @@
     <!-- MODULE CONTAINER -->
     <div class="w-3/4 flex flex-col items-center">
 
-        <introduction v-if="module.introduction" :introduction="module.introduction">{{ module.introduction.body }}</introduction>
+        <introduction v-if="module.introduction" :introduction="module.introduction"></introduction>
 
         <!-- LESSON CONTENT -->
         <div class="w-full flex flex-col items-end relative">

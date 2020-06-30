@@ -45,7 +45,7 @@ class Tag extends Resource
         return [
             ID::make()->sortable()->hideFromIndex(),
             Text::make('label'),
-            Image::make('icon')
+            Image::make('icon'),
             BelongsToMany::make('Materials')
         ];
     }

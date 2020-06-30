@@ -17,7 +17,7 @@ class Level extends Resource
     * @var int
     */
     public static $priority = 3;
-    
+
     /**
      * The model the resource corresponds to.
      *
@@ -52,18 +52,9 @@ class Level extends Resource
         return [
             ID::make()->sortable()->hideFromIndex(),
             Text::make('title'),
-            Text::make('code'),
             Textarea::make('description'),
-            BelongsToMany::make('Users')->fields(function () {
-                return [
-                    Text::make('is_done'),
-                ];
-            }),
-            BelongsToMany::make('Modules')->fields(function () {
-                return [
-                    Text::make('is_done'),
-                ];
-            }),
+            BelongsToMany::make('Users'),
+            BelongsToMany::make('Modules'),
         ];
     }
 

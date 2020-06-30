@@ -73,11 +73,7 @@ class User extends Resource
                 ->creationRules('required', 'string', 'min:8')
                 ->updateRules('nullable', 'string', 'min:8'),
 
-            BelongsToMany::make('Levels')->fields(function () {
-                return [
-                    Text::make('is_done'),
-                ];
-            })
+            BelongsToMany::make('Levels')
         ];
     }
 

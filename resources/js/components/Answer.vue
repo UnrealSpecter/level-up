@@ -7,10 +7,5 @@
 <script>
     export default {
         props: ['answer'],
-        // data: function(){
-        //     return {
-        //         antwoord: this.answer
-        //     }
-        // }
     }
 </script>

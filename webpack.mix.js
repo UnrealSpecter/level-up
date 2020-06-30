@@ -12,14 +12,16 @@ require('laravel-mix-purgecss');
  |
  */
 
-mix.js('resources/js/vue.js', 'public/scripts')
-    .postCss('resources/sass/tailwind.css', 'public/styles/tailwind.css', [
+mix.js('resources/js/app.js', 'public/js')
+    .postCss('resources/sass/app.css', 'public/css/app.css', [
             require('postcss-import'),
             require('tailwindcss'),
             require('postcss-nested'),
             require('postcss-custom-properties'),
             require('autoprefixer'),
     ])
+    .extract(['vue', 'lodash', 'popper.js', 'axios'])
+    .version()
     .purgeCss();
 
 mix.browserSync({

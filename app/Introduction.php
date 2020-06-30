@@ -9,6 +9,6 @@ class Introduction extends Model
     protected $fillable = ['body'];
 
     public function module() {
-        return $this->belongsTo(Module::class);
+        return $this->belongsTo(Module::class, 'module_id');
     }
 }

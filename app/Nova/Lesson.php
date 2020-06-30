@@ -53,16 +53,8 @@ class Lesson extends Resource
             ID::make()->sortable()->hideFromIndex(),
             Text::make('title'),
             Textarea::make('description'),
-            BelongsToMany::make('Subjects')->fields(function () {
-                return [
-                    Text::make('is_done'),
-                ];
-            }),
-            BelongsToMany::make('Modules')->fields(function () {
-                return [
-                    Text::make('is_done'),
-                ];
-            }),
+            BelongsToMany::make('Subjects'),
+            BelongsToMany::make('Modules'),
         ];
     }
 

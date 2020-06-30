@@ -17,8 +17,6 @@ class CreateSubjectsTable extends Migration
             $table->id();
             $table->string('title');
             $table->longText('description');
-            $table->unsignedBigInteger('lesson_id')->nullable();
-            $table->foreign('lesson_id')->references('id')->on('lessons');
             $table->timestamps();
         });
     }

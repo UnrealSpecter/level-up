@@ -42,14 +42,18 @@
             <div class="multiple-choice-assignment">
                 <div class="assignment-question montserrat-bold text-25">Multiple Choice:</div>
                 <div class="assignment-question montserrat-regular mb-10 text-20">{{ assignment.question }}</div>
-                <div v-if="assignment.is_done" class="answers flex flex-col mb-25">
-                    <answer :answer="correctAnswer"></answer>
+                <div v-if="this.assignment.is_done" class="answers flex flex-col mb-25">
+                    <answer :answer="selectedAnswer"></answer>
                 </div>
                 <div v-else class="answers flex flex-col mb-25">
-                    <!-- ANSWERS -->
-                    <answer v-for="(answer, index) in assignment.answers" :key="index" :answer="answer"></answer>
+                    <form @submit.prevent="submit">
+                        <div class="form-group">
+                            <answer v-for="(answer, index) in assignment.answers" :key="index" :answer="answer"></answer>
+                        </div>
+                        <button class="rounded-20 w-200 h-50 shadow flex justify-center items-center uppercase font-bold text-white bg-black" type="submit">submit</button>
+                    </form>
                 </div>
-                <button class="rounded-20 w-200 h-50 shadow flex justify-center items-center uppercase font-bold text-white bg-black" @click="submitAssignment()">submit</button>
+
             </div>
 
         </div>
@@ -63,13 +67,29 @@
         props: ['index', 'assignment'],
         data() {
             return {
-                open: true
+                open: true,
+                selectedAnswer: this.assignment.answers[0]
+                // errors: new Errors(),
             }
         },
         methods: {
             toggleOpen: function() {
                 this.open = !this.open;
-            }
+            },
+
+            submit() {
+                // eventBus.$emit('submittingAssignment', this.selectedAnswer);
+                // console.log(this.selectedAnswer);
+                axios.put(`/assignments/${this.assignment.id}`, { answer: this.selectedAnswer })
+                    .then((response) => {
+                        eventBus.$emit('assignmentUpdated');
+                    })
+                    .catch((error) => {
+                        console.log(error.response.data.errors)
+                        // this.errors = new Errors(error.response.data.errors)
+                    });
+            },
+
         },
         computed: {
             correctAnswer: function() {
@@ -80,7 +100,7 @@
                         return answer;
                     }
                 });
-                return this.assignment.answers[0];
+                return this.selectedAnswer;
             }
         }
     }

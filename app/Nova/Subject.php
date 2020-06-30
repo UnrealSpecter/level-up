@@ -54,17 +54,9 @@ class Subject extends Resource
             ID::make()->sortable()->hideFromIndex(),
             Text::make('title'),
             Textarea::make('description'),
-            BelongsToMany::make('Lessons')->fields(function () {
-                return [
-                    Text::make('is_done'),
-                ];
-            }),
-            HasMany::make(Material::class),
-            BelongsToMany::make('Assignments')->fields(function () {
-                return [
-                    Text::make('is_done'),
-                ];
-            }),
+            BelongsToMany::make('Lessons'),
+            HasMany::make('Materials'),
+            BelongsToMany::make('Assignments'),
         ];
     }
 

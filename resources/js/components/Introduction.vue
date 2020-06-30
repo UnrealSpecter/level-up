@@ -16,8 +16,8 @@
         </div>
 
         <!-- SUBJECT SLOT -->
-        <div :class="{ hidden: isOpen }" class="introduction-content p-50 w-full flex flex-col">
-            <slot></slot>
+        <div :class="{ hidden: isOpen }" class="introduction-content p-50 w-full flex flex-col" v-html="introduction.body">
+
         </div>
 
     </div>

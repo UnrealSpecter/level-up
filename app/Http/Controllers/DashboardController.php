@@ -23,7 +23,7 @@ class DashboardController extends Controller
     public function vueTest(){
         //module -> lesson -> subject -> assignment
         //post to /assignments -> response ok -> refresh module
-        
+
     }
 
     function save(){
@@ -52,6 +52,7 @@ class DashboardController extends Controller
     public function show($id){
         $module = Module::with('lessons.subjects.assignments.answers', 'lessons.subjects.materials.tags', 'introduction')->get()->find($id);
 
+        dd($module->lessons->first()->subjects->first()->assignments->first());
         return view('dashboard.show')->with('module', $module);
     }
 }

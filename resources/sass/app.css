@@ -8,6 +8,7 @@
 @import "tailwindcss/utilities";
 
 /* CORE UTILLITIES */
+@import "./core/fonts.css";
 /* @import "./core/font-size.css"; */
 /* @import "./core/colors.css"; */
 @import "./core/icon-size.css";
@@ -20,7 +21,7 @@
 @import "./transitions/transition-scale.css";
 
 /* THEME */
-@import "_variables";
+/* @import "_variables"; */
 
 /* COMPONENTS */
 

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\BelongsToMany;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Answer extends Resource
@@ -53,11 +53,7 @@ class Answer extends Resource
             ID::make()->sortable()->hideFromIndex(),
             Text::make('answer'),
             Boolean::make('is_correct'),
-            BelongsToMany::make('Assignments')->fields(function () {
-                return [
-                    Text::make('is_done'),
-                ];
-            }),
+            BelongsTo::make('Assignment'),
         ];
     }
 
