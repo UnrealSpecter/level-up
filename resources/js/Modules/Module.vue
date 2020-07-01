@@ -1,5 +1,5 @@
 <template>
-    <layout>
+
         <container>
 
             <introduction v-if="module.introduction" :introduction="module.introduction"></introduction>
@@ -17,7 +17,6 @@
             </div>
 
         </container>
-    </layout>
 
 </template>
 

@@ -46,7 +46,7 @@
                 <div class="tag-wrapper overflow-hidden flex flex-row justify-start items-center mb-25 shadow-md rounded-10">
                     <div class="mr-25 p-25 montserrat-bold text-20 uppercase bg-black text-white">tag filter</div>
                     <div v-for="(tag, index) in subject.materials[0].tags" :key="index" class="shadow mr-10 flex flex-row flex-no-wrap rounded-20 pl-10 pr-15 py-5 justify-center items-center">
-                        <img :src="`/assets/icons/${ tag.icon }`" class="w-25 mr-10">
+                        <img :src="`../storage/${ tag.icon }`" class="w-25 mr-10">
                         <div class="montserrat-bold mt-5">{{ tag.label }}</div>
                     </div>
                 </div>

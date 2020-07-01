@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Assignment extends Model
 {
-    // protected $appends = ['is_done'];
+    protected $appends = ['is_done'];
     protected $fillable = ['title', 'description'];
 
     /*
@@ -23,16 +23,16 @@ class Assignment extends Model
         return $this->belongsToMany(Subject::class, 'subject_assignment')->withPivot('is_done');
     }
 
-    // public function getIsDoneAttribute() {
-    //     if($this->pivot){
-    //         return $this->pivot->is_done ? true : false;
-    //     }
-    //     else {
-    //         $parent = $this->subjects->first();
-    //         return $parent->pivot->is_done ? true : false;
-    //     }
-    //
-    // }
+    public function getIsDoneAttribute() {
+        if($this->pivot){
+            return $this->pivot->is_done ? true : false;
+        }
+        else {
+            $parent = $this->subjects->first();
+            return $parent->pivot->is_done ? true : false;
+        }
+
+    }
 
     public function check($answer){
         if($answer->is_correct){

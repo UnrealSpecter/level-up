@@ -35,7 +35,18 @@ class DatabaseSeeder extends Seeder
         //             $introduction = factory(App\Introduction::class)->make();
         //             $module->introduction()->save($introduction);
         //
-        //         });
+        //             $this->call(UsersTableSeeder::class);
+        $this->call(CoursesTableSeeder::class);
+        $this->call(LevelsTableSeeder::class);
+        $this->call(ModulesTableSeeder::class);
+        $this->call(LessonsTableSeeder::class);
+        $this->call(SubjectsTableSeeder::class);
+        $this->call(MaterialsTableSeeder::class);
+        $this->call(TagsTableSeeder::class);
+        $this->call(AssignmentsTableSeeder::class);
+        $this->call(AnswersTableSeeder::class);
+        $this->call(IntroductionsTableSeeder::class);
+    });
         //
         //         $level->modules()->saveMany($modules);
         //

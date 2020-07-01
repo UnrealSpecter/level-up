@@ -7,7 +7,7 @@
             <!-- TAGS -->
             <div class="tag-wrapper flex flex-row justify-center mb-25">
                 <div v-for="(tag, index) in material.tags" :key="index" class="mr-10 flex flex-row flex-no-wrap rounded-20 pl-10 pr-15 py-5 shadow justify-center items-center">
-                    <img :src="`/assets/icons/${ tag.icon }`" class="w-25 mr-10">
+                    <img :src="`../storage/${ tag.icon }`" class="w-25 mr-10">
                     <div class="montserrat-bold mt-5">{{ tag.label }}</div>
                 </div>
             </div>
