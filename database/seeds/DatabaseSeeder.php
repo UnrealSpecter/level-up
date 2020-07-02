@@ -11,13 +11,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-
         // //create a module
         // //create a lesson
         // factory(App\Course::class, 3)->create();
         //
         // //create a user
-        factory(App\User::class, 1)->create()->each(function ($user) {
+        // factory(App\User::class, 1)->create()->each(function ($user) {
         //
         //     //create tags for later use
         //     $tags = factory(App\Tag::class, 2)->create();
@@ -35,18 +34,7 @@ class DatabaseSeeder extends Seeder
         //             $introduction = factory(App\Introduction::class)->make();
         //             $module->introduction()->save($introduction);
         //
-        //             $this->call(UsersTableSeeder::class);
-        $this->call(CoursesTableSeeder::class);
-        $this->call(LevelsTableSeeder::class);
-        $this->call(ModulesTableSeeder::class);
-        $this->call(LessonsTableSeeder::class);
-        $this->call(SubjectsTableSeeder::class);
-        $this->call(MaterialsTableSeeder::class);
-        $this->call(TagsTableSeeder::class);
-        $this->call(AssignmentsTableSeeder::class);
-        $this->call(AnswersTableSeeder::class);
-        $this->call(IntroductionsTableSeeder::class);
-    });
+    // });
         //
         //         $level->modules()->saveMany($modules);
         //
@@ -88,15 +76,27 @@ class DatabaseSeeder extends Seeder
         //             }
         //         }
         //     }
-        });
+        // });
 
-        // $this->call(UserSeeder::class);
-        // $this->call(LessonSeeder::class);
-        // $this->call(SubjectSeeder::class);
-        // $this->call(ResourceSeeder::class);
-        // $this->call(AssignmentSeeder::class);
-        // $this->call(AnswerSeeder::class);
-        // $this->call(UserLessonSeeder::class);
-        // $this->call(UserAssignmentSeeder::class);
+        $this->call(UsersTableSeeder::class);
+        $this->call(LevelsTableSeeder::class);
+        $this->call(CoursesTableSeeder::class);
+        $this->call(ModulesTableSeeder::class);
+        $this->call(IntroductionsTableSeeder::class);
+        $this->call(LessonsTableSeeder::class);
+        $this->call(SubjectsTableSeeder::class);
+        $this->call(MaterialsTableSeeder::class);
+        $this->call(TagsTableSeeder::class);
+        $this->call(AssignmentsTableSeeder::class);
+        $this->call(AnswersTableSeeder::class);
+        $this->call(AnswersTableSeeder::class);
+
+        $this->call(UserLevelTableSeeder::class);
+        $this->call(LevelModuleTableSeeder::class);
+        $this->call(ModuleLessonTableSeeder::class);
+        $this->call(LessonSubjectTableSeeder::class);
+        $this->call(SubjectAssignmentTableSeeder::class);
+        $this->call(MaterialTagTableSeeder::class);
+
     }
 }
