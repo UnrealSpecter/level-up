@@ -34,11 +34,11 @@
             <!-- SUBJECT DESCRIPTION -->
             <div class="w-full mb-50">
                 <div class="lesson-description-title montserrat-bold text-40 text-black mb-25">De Theorie</div>
-                <p class="lesson-description montserrat-regular text-20 text-black">{{ subject.description }}</p>
+                <p class="lesson-description montserrat-regular text-20 text-black" v-html="subject.description"></p>
             </div>
 
             <!-- MATERIALS WRAPPER -->
-            <div class="flex flex-col">
+            <div v-if="subject.materials.length" class="flex flex-col">
 
                 <div class="material-title montserrat-bold text-40 text-black mb-25">De Informatie</div>
 
@@ -52,21 +52,26 @@
                 </div> -->
 
                 <!-- MATERIALS -->
-                <div v-if="subject.materials" class="w-full grid grid-cols-3 gap-50 mb-50">
+                <div class="w-full grid grid-cols-3 gap-50 mb-50">
                     <material v-for="(material, index) in subject.materials" :key="index" :material="material"></material>
                 </div>
+
             </div>
 
-            <!-- ASSIGNMENT DESCRIPTION -->
-            <div class="w-full mb-50">
-                <div class="lesson-description-title montserrat-bold text-40 text-black mb-25">De Opdrachten</div>
-                <p class="lesson-description montserrat-regular text-20 text-black">Hier zou nog een uitgebreide inleiding kunnen komen bij de opdrachten die horen bij deze les. Zoals tips of hints of aandachtspunten.</p>
-            </div>
+            <!-- ASSIGNMENTS WRAPPER -->
+            <div v-if="subject.assignments.length" class="flex flex-col">
 
-            <div id="assignment-wrapper" class="w-full">
-                <assignment v-for="(assignment, index) in subject.assignments" :key="index" :index="index + 1" :assignment="assignment"></assignment>
-            </div>
+                <!-- ASSIGNMENT DESCRIPTION -->
+                <div v-if="subject.assignments.length" class="w-full mb-50">
+                    <div class="lesson-description-title montserrat-bold text-40 text-black mb-25">De Opdrachten</div>
+                    <p class="lesson-description montserrat-regular text-20 text-black">Hier zou nog een uitgebreide inleiding kunnen komen bij de opdrachten die horen bij deze les. Zoals tips of hints of aandachtspunten.</p>
+                </div>
 
+                <div v-if="subject.assignments.length" id="assignment-wrapper" class="w-full">
+                    <assignment v-for="(assignment, index) in subject.assignments" :key="index" :index="index + 1" :assignment="assignment"></assignment>
+                </div>
+
+            </div>
 
         </div>
 

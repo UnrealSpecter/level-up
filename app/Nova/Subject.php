@@ -5,7 +5,7 @@ namespace App\Nova;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Textarea;
+use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Heading;
@@ -60,7 +60,7 @@ class Subject extends Resource
             Heading::make('Basis Gegevens'),
             ID::make()->sortable()->hideFromIndex(),
             Text::make('title'),
-            Textarea::make('description'),
+            Trix::make('description')->withFiles('public'),
             Boolean::make('Is Done', function () {
                 return $this->isDone;
             }),

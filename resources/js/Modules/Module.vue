@@ -2,6 +2,40 @@
 
         <container>
 
+            <navigation></navigation>
+
+            <div class="h-screen w-full flex flex-col justify-center items-center montserrat-bold">
+
+                <div class="w-full text-50 montserrat-bold mb-50 text-center">{{ module.title }}</div>
+
+                <div class="progression flex w-1/2 justify-center items-center flex-row flex-no-wrap grid grid-cols-3 gap-50">
+                    <div class="col-span-1 flex flex-col justify-center items-center rounded-20 shadow-lg bg-white text-black p-50">
+                        <div class="montserrat-regular text-25 mb-10">
+                            Lessen
+                        </div>
+                        <div class="montserrat-bold text-50">
+                            {{ module.totalLessons  }} / {{ module.lessonsDone }}
+                        </div>
+                    </div>
+                    <div class="col-span-1 flex flex-col justify-center items-center rounded-20 shadow-lg bg-white text-black p-50">
+                        <div class="montserrat-regular text-25 mb-10">
+                            Lessen
+                        </div>
+                        <div class="montserrat-bold text-50">
+                            <!-- {{ module.totalSubjects  }} / {{ modules.subjectsDone }} -->
+                        </div>
+                    </div>
+                    <div class="col-span-1 flex flex-col justify-center items-center rounded-20 shadow-lg bg-white text-black p-50">
+                        <div class="montserrat-regular text-25 mb-10">
+                            Lessen
+                        </div>
+                        <div class="montserrat-bold text-50">
+                            {{ module.totalLessons  }} / {{ module.lessonsDone }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <introduction v-if="module.introduction" :introduction="module.introduction"></introduction>
 
             <!-- LESSON CONTENT -->
@@ -40,6 +74,20 @@
                     console.log(error.response.data.errors)
                 });
             }
-        }
+        },
+        computed: {
+            totalLessons: function () {
+                return this.module.lessons.length;
+            },
+            lessonsDone: function () {
+                let lessonsDone = 0;
+                for (let index = 0; index < this.module.lessons.length; index++) {
+                    if(this.module.lessons[index].is_done){
+                        lessonsDone++;
+                    }
+                }
+                return lessonsDone;
+            },
+        },
     }
 </script>

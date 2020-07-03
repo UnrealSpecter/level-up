@@ -67,7 +67,7 @@
         props: ['index', 'assignment'],
         data() {
             return {
-                open: true,
+                open: !this.assignment.is_done,
                 selectedAnswer: this.assignment.answers[0]
                 // errors: new Errors(),
             }

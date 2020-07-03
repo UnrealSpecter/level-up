@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Module extends Model
 {
-    protected $appends = ['is_done'];
+    protected $appends = ['is_done', 'totalLessons', 'lessonsDone'];
     protected $fillable = ['title', 'code', 'description'];
 
     public function introduction(){
@@ -27,6 +27,20 @@ class Module extends Model
 
     public function levels(){
         return $this->belongsToMany(Level::class, 'level_module');
+    }
+
+    public function getTotalLessonsAttribute(){
+        return count($this->lessons);
+    }
+
+    public function getLessonsDoneAttribute(){
+        $lessonsDone = 0;
+        foreach($this->lessons as $lesson){
+            if($lesson->isDone){
+                $lessonsDone++;
+            }
+        }
+        return $lessonsDone;
     }
 
     public function getIsDoneAttribute() {
