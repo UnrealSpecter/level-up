@@ -7,8 +7,11 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\Heading;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
+
+use NovaAttachMany\AttachMany;
 
 class Lesson extends Resource
 {
@@ -51,14 +54,28 @@ class Lesson extends Resource
     public function fields(Request $request)
     {
         return [
+            Heading::make('<div class="rounded shadow-lg w-full p-8 font-sans font-bold bg-black text-white px-100">Basis gegevens: </div>')->asHtml()->hideFromDetail(),
             ID::make()->sortable()->hideFromIndex(),
             Text::make('title'),
             Textarea::make('description'),
             Boolean::make('Is Done', function () {
                 return $this->isDone;
             }),
-            BelongsToMany::make('Subjects'),
+
+            Heading::make('<div class="rounded shadow-lg w-full p-8 font-sans font-bold bg-black text-white px-100">Modules: </div>')->asHtml()->hideFromDetail(),
             BelongsToMany::make('Modules'),
+            AttachMany::make('Modules')
+                ->showCounts()
+                ->fullWidth()
+                ->help('<b>Tip:</b> Voeg modules toe.'),
+
+            Heading::make('<div class="rounded shadow-lg w-full p-8 font-sans font-bold bg-black text-white px-100">Subjects: </div>')->asHtml()->hideFromDetail(),
+            BelongsToMany::make('Subjects'),
+            AttachMany::make('Subjects')
+                ->showCounts()
+                ->fullWidth()
+                ->help('<b>Tip:</b> Voeg subjects toe.'),
+
         ];
     }
 

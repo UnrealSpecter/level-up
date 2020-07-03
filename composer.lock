@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "acf4863a8448cbbde4f59ae43f6ecc3e",
+    "content-hash": "5926ed9b559e969877ee9552e3ebb327",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -216,6 +216,47 @@
                 "time"
             ],
             "time": "2020-05-26T01:27:20+00:00"
+        },
+        {
+            "name": "dillingham/nova-attach-many",
+            "version": "1.0.11",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dillingham/nova-attach-many.git",
+                "reference": "66e0b01e1be3aecbbfc72e7df81b45bf7fb9674a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dillingham/nova-attach-many/zipball/66e0b01e1be3aecbbfc72e7df81b45bf7fb9674a",
+                "reference": "66e0b01e1be3aecbbfc72e7df81b45bf7fb9674a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "NovaAttachMany\\Providers\\FieldServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "NovaAttachMany\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Attach Many Nova field",
+            "keywords": [
+                "laravel",
+                "nova"
+            ],
+            "time": "2019-03-22T13:17:50+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -2955,6 +2996,47 @@
             "time": "2020-03-29T20:13:32+00:00"
         },
         {
+            "name": "shivanshrajpoot/nova-create-or-add",
+            "version": "0.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/shivanshrajpoot/nova-create-or-add.git",
+                "reference": "bd8e942318c7d56c56542fa8c08545ab83a71492"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/shivanshrajpoot/nova-create-or-add/zipball/bd8e942318c7d56c56542fa8c08545ab83a71492",
+                "reference": "bd8e942318c7d56c56542fa8c08545ab83a71492",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Shivanshrajpoot\\NovaCreateOrAdd\\FieldServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Shivanshrajpoot\\NovaCreateOrAdd\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A Laravel Nova field.",
+            "keywords": [
+                "laravel",
+                "nova"
+            ],
+            "time": "2018-11-28T09:19:33+00:00"
+        },
+        {
             "name": "spatie/once",
             "version": "2.2.0",
             "source": {
@@ -5424,6 +5506,53 @@
                 }
             ],
             "time": "2020-06-15T23:49:30+00:00"
+        },
+        {
+            "name": "yassi/nova-nested-form",
+            "version": "v3.0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yassipad/laravel-nova-nested-form.git",
+                "reference": "98e9ef2b84a94440a9ac022ca0b0b996a251ab25"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yassipad/laravel-nova-nested-form/zipball/98e9ef2b84a94440a9ac022ca0b0b996a251ab25",
+                "reference": "98e9ef2b84a94440a9ac022ca0b0b996a251ab25",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "require-dev": {
+                "laravel/nova": "~2.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Yassi\\NestedForm\\FieldServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Yassi\\NestedForm\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A Laravel Nova package that allows you to create/update/delete nested related fields from a parent form.",
+            "keywords": [
+                "form",
+                "laravel",
+                "nested",
+                "nova",
+                "relationship"
+            ],
+            "time": "2020-03-14T07:13:09+00:00"
         }
     ],
     "packages-dev": [

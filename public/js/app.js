@@ -2116,34 +2116,6 @@ var render = function() {
         [
           _c(
             "div",
-            { staticClass: "tag-wrapper flex flex-row justify-center mb-25" },
-            _vm._l(_vm.material.tags, function(tag, index) {
-              return _c(
-                "div",
-                {
-                  key: index,
-                  staticClass:
-                    "mr-10 flex flex-row flex-no-wrap rounded-20 pl-10 pr-15 py-5 shadow justify-center items-center"
-                },
-                [
-                  _c("img", {
-                    staticClass: "w-25 mr-10",
-                    attrs: { src: "../storage/" + tag.icon }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "montserrat-bold mt-5" }, [
-                    _vm._v(_vm._s(tag.label))
-                  ])
-                ]
-              )
-            }),
-            0
-          ),
-          _vm._v(" "),
-          _vm._m(0),
-          _vm._v(" "),
-          _c(
-            "div",
             {
               staticClass:
                 "w-full montserrat-regular flex justify-center items-center"
@@ -2169,33 +2141,7 @@ var render = function() {
     ]
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "shadow bg-white p-10 rounded-20 likes w-3/4 montserrat-regular text-center mb-25 flex flex-row flex-no-wrap justify-center items-center"
-      },
-      [
-        _c("img", {
-          staticClass: "w-25 h-25 cursor-pointer z-10",
-          attrs: { src: "/assets/icons/vote-icons/upvote.svg" }
-        }),
-        _vm._v(" "),
-        _c("div", { staticClass: "mx-10" }, [_vm._v("69")]),
-        _vm._v(" "),
-        _c("img", {
-          staticClass: "w-25 h-25 cursor-pointer z-10",
-          attrs: { src: "/assets/icons/vote-icons/upvote.svg" }
-        })
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -2467,57 +2413,19 @@ var render = function() {
             [_vm._v("De Informatie")]
           ),
           _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass:
-                "tag-wrapper overflow-hidden flex flex-row justify-start items-center mb-25 shadow-md rounded-10"
-            },
-            [
-              _c(
+          _vm.subject.materials
+            ? _c(
                 "div",
-                {
-                  staticClass:
-                    "mr-25 p-25 montserrat-bold text-20 uppercase bg-black text-white"
-                },
-                [_vm._v("tag filter")]
-              ),
-              _vm._v(" "),
-              _vm._l(_vm.subject.materials[0].tags, function(tag, index) {
-                return _c(
-                  "div",
-                  {
+                { staticClass: "w-full grid grid-cols-3 gap-50 mb-50" },
+                _vm._l(_vm.subject.materials, function(material, index) {
+                  return _c("material", {
                     key: index,
-                    staticClass:
-                      "shadow mr-10 flex flex-row flex-no-wrap rounded-20 pl-10 pr-15 py-5 justify-center items-center"
-                  },
-                  [
-                    _c("img", {
-                      staticClass: "w-25 mr-10",
-                      attrs: { src: "../storage/" + tag.icon }
-                    }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "montserrat-bold mt-5" }, [
-                      _vm._v(_vm._s(tag.label))
-                    ])
-                  ]
-                )
-              })
-            ],
-            2
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "w-full grid grid-cols-3 gap-50 mb-50" },
-            _vm._l(_vm.subject.materials, function(material, index) {
-              return _c("material", {
-                key: index,
-                attrs: { material: material }
-              })
-            }),
-            1
-          )
+                    attrs: { material: material }
+                  })
+                }),
+                1
+              )
+            : _vm._e()
         ]),
         _vm._v(" "),
         _vm._m(0),
@@ -3942,8 +3850,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\code\Projects\level-up\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\code\Projects\level-up\resources\sass\app.css */"./resources/sass/app.css");
+__webpack_require__(/*! F:\Code\Projects\level-up\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! F:\Code\Projects\level-up\resources\sass\app.css */"./resources/sass/app.css");
 
 
 /***/ })

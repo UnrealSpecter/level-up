@@ -7,7 +7,10 @@ use Laravel\Nova\Fields\Gravatar;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Password;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Heading;
 use Laravel\Nova\Fields\BelongsToMany;
+
+use NovaAttachMany\AttachMany;
 
 class User extends Resource
 {
@@ -50,7 +53,9 @@ class User extends Resource
     public function fields(Request $request)
     {
         return [
-            ID::make()->sortable(),
+            Heading::make('<div class="rounded shadow-lg w-full p-8 font-sans font-bold bg-black text-white px-100">Basis gegevens: </div>')->asHtml()->hideFromDetail(),
+
+            ID::make()->sortable()->hideFromIndex(),
 
             Gravatar::make()->maxWidth(50),
 
@@ -73,7 +78,13 @@ class User extends Resource
                 ->creationRules('required', 'string', 'min:8')
                 ->updateRules('nullable', 'string', 'min:8'),
 
-            BelongsToMany::make('Levels')
+            Heading::make('<div class="rounded shadow-lg w-full p-8 font-sans font-bold bg-black text-white px-100">Levels: </div>')->asHtml()->hideFromDetail(),
+            BelongsToMany::make('Levels'),
+            AttachMany::make('Levels')
+                ->showCounts()
+                ->fullWidth()
+                ->help('<b>Tip:</b> Voeg levels toe.'),
+
         ];
     }
 

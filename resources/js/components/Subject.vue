@@ -43,16 +43,16 @@
                 <div class="material-title montserrat-bold text-40 text-black mb-25">De Informatie</div>
 
                 <!-- MATERIAL TAG FILTER -->
-                <div class="tag-wrapper overflow-hidden flex flex-row justify-start items-center mb-25 shadow-md rounded-10">
+                <!-- <div class="tag-wrapper overflow-hidden flex flex-row justify-start items-center mb-25 shadow-md rounded-10">
                     <div class="mr-25 p-25 montserrat-bold text-20 uppercase bg-black text-white">tag filter</div>
                     <div v-for="(tag, index) in subject.materials[0].tags" :key="index" class="shadow mr-10 flex flex-row flex-no-wrap rounded-20 pl-10 pr-15 py-5 justify-center items-center">
                         <img :src="`../storage/${ tag.icon }`" class="w-25 mr-10">
                         <div class="montserrat-bold mt-5">{{ tag.label }}</div>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- MATERIALS -->
-                <div class="w-full grid grid-cols-3 gap-50 mb-50">
+                <div v-if="subject.materials" class="w-full grid grid-cols-3 gap-50 mb-50">
                     <material v-for="(material, index) in subject.materials" :key="index" :material="material"></material>
                 </div>
             </div>

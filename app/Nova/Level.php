@@ -7,8 +7,11 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\Heading;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
+
+use NovaAttachMany\AttachMany;
 
 class Level extends Resource
 {
@@ -51,14 +54,29 @@ class Level extends Resource
     public function fields(Request $request)
     {
         return [
+            Heading::make('<div class="rounded shadow-lg w-full p-8 font-sans font-bold bg-black text-white px-100">Basis gegevens: </div>')->asHtml()->hideFromDetail(),
             ID::make()->sortable()->hideFromIndex(),
             Text::make('title'),
             Textarea::make('description'),
             Boolean::make('Is Done', function () {
                 return $this->isDone;
             }),
-            BelongsToMany::make('Users'),
+
+            Heading::make('<div class="rounded shadow-lg w-full p-8 font-sans font-bold bg-black text-white px-100">Modules: </div>')->asHtml()->hideFromDetail(),
             BelongsToMany::make('Modules'),
+            AttachMany::make('Modules')
+                ->showCounts()
+                ->fullWidth()
+                ->help('<b>Tip:</b> Voeg makkelijk levels toe.'),
+
+
+            Heading::make('<div class="rounded shadow-lg w-full p-8 font-sans font-bold bg-black text-white px-100">Users: </div>')->asHtml()->hideFromDetail(),
+            BelongsToMany::make('Users'),
+            AttachMany::make('Users')
+                ->showCounts()
+                ->fullWidth()
+                ->help('<b>Tip:</b> Voeg makkelijk levels toe.'),
+
         ];
     }
 

@@ -8,8 +8,11 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\BelongsToMany;
-use Laravel\Nova\Fields\HasMany;
+use Laravel\Nova\Fields\Heading;
 use Laravel\Nova\Http\Requests\NovaRequest;
+
+use NovaAttachMany\AttachMany;
+use Yassi\NestedForm\NestedForm;
 
 class Subject extends Resource
 {
@@ -52,15 +55,33 @@ class Subject extends Resource
     public function fields(Request $request)
     {
         return [
+
+            Heading::make('<div class="rounded shadow-lg w-full p-8 font-sans font-bold bg-black text-white px-100">Basis gegevens: </div>')->asHtml()->hideFromDetail(),
             ID::make()->sortable()->hideFromIndex(),
             Text::make('title'),
             Textarea::make('description'),
             Boolean::make('Is Done', function () {
                 return $this->isDone;
             }),
+
+            Heading::make('<div class="rounded shadow-lg w-full p-8 font-sans font-bold bg-black text-white px-100">Voeg lessen toe: </div>')->asHtml()->hideFromDetail(),
             BelongsToMany::make('Lessons'),
-            HasMany::make('Materials'),
+            AttachMany::make('Lessons')
+                ->showCounts()
+                ->showPreview()
+                ->fullWidth()
+                ->help('<b>Tip:</b> Voeg lessen toe.'),
+
+            Heading::make('<div class="rounded shadow-lg w-full p-8 font-sans font-bold bg-black text-white px-100">Voeg opdrachten toe: </div>')->asHtml()->hideFromDetail(),
             BelongsToMany::make('Assignments'),
+            AttachMany::make('Assignments')
+                ->showCounts()
+                ->showPreview()
+                ->fullWidth()
+                ->help('<b>Tip:</b> Voeg opdrachten toe.'),
+
+            NestedForm::make('Materials'),
+
         ];
     }
 

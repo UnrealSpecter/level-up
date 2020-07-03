@@ -9,7 +9,11 @@ use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\HasMany;
+use Laravel\Nova\Fields\Heading;
+use Yassi\NestedForm\NestedForm;
 use Laravel\Nova\Http\Requests\NovaRequest;
+
+
 
 class Assignment extends Resource
 {
@@ -52,6 +56,7 @@ class Assignment extends Resource
     public function fields(Request $request)
     {
         return [
+            Heading::make('<div class="rounded shadow-lg w-full p-8 font-sans font-bold bg-black text-white px-100">Basis gegevens: </div>')->asHtml()->hideFromDetail(),
             ID::make()->sortable()->hideFromIndex(),
             Text::make('title'),
             Textarea::make('description'),
@@ -59,7 +64,7 @@ class Assignment extends Resource
                 return $this->isDone;
             }),
             BelongsToMany::make('Subjects'),
-            HasMany::make('Answers'),
+            NestedForm::make('Answers'),
         ];
     }
 
