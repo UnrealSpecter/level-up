@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -53,6 +54,9 @@ class Lesson extends Resource
             ID::make()->sortable()->hideFromIndex(),
             Text::make('title'),
             Textarea::make('description'),
+            Boolean::make('Is Done', function () {
+                return $this->isDone;
+            }),
             BelongsToMany::make('Subjects'),
             BelongsToMany::make('Modules'),
         ];

@@ -8,6 +8,7 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\HasOne;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -56,6 +57,9 @@ class Module extends Resource
             Text::make('title'),
             Text::make('code'),
             Textarea::make('description'),
+            Boolean::make('Is Done', function () {
+                return $this->isDone;
+            }),
             BelongsToMany::make('Levels'),
             BelongsToMany::make('Lessons'),
             BelongsTo::make('Course'),

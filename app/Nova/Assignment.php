@@ -7,6 +7,7 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\BelongsToMany;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -54,6 +55,9 @@ class Assignment extends Resource
             ID::make()->sortable()->hideFromIndex(),
             Text::make('title'),
             Textarea::make('description'),
+            Boolean::make('Is Done', function () {
+                return $this->isDone;
+            }),
             BelongsToMany::make('Subjects'),
             HasMany::make('Answers'),
         ];
