@@ -73,13 +73,8 @@ class Subject extends Resource
                 ->fullWidth()
                 ->help('<b>Tip:</b> Voeg lessen toe.'),
 
-            Heading::make('<div class="rounded shadow-lg w-full p-8 font-sans font-bold bg-black text-white px-100">Voeg opdrachten toe: </div>')->asHtml()->hideFromDetail(),
             BelongsToMany::make('Assignments'),
-            AttachMany::make('Assignments')
-                ->showCounts()
-                ->showPreview()
-                ->fullWidth()
-                ->help('<b>Tip:</b> Voeg opdrachten toe.'),
+            NestedForm::make('Assignments'),
 
             HasMany::make('Materials'),
             NestedForm::make('Materials'),
