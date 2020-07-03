@@ -9,6 +9,7 @@ use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Heading;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 use NovaAttachMany\AttachMany;
@@ -80,6 +81,7 @@ class Subject extends Resource
                 ->fullWidth()
                 ->help('<b>Tip:</b> Voeg opdrachten toe.'),
 
+            HasMany::make('Materials'),
             NestedForm::make('Materials'),
 
         ];
