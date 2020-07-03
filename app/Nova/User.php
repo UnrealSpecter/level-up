@@ -53,7 +53,7 @@ class User extends Resource
     public function fields(Request $request)
     {
         return [
-            Heading::make('<div class="rounded shadow-lg w-full p-8 font-sans font-bold bg-black text-white px-100">Basis gegevens: </div>')->asHtml()->hideFromDetail(),
+            Heading::make('Basis Gegevens'),
 
             ID::make()->sortable()->hideFromIndex(),
 
@@ -78,7 +78,7 @@ class User extends Resource
                 ->creationRules('required', 'string', 'min:8')
                 ->updateRules('nullable', 'string', 'min:8'),
 
-            Heading::make('<div class="rounded shadow-lg w-full p-8 font-sans font-bold bg-black text-white px-100">Levels: </div>')->asHtml()->hideFromDetail(),
+            Heading::make('Levels'),
             BelongsToMany::make('Levels'),
             AttachMany::make('Levels')
                 ->showCounts()

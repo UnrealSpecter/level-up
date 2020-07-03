@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
+use Laravel\Nova\Fields\Heading;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -44,6 +45,7 @@ class Material extends Resource
     public function fields(Request $request)
     {
         return [
+            Heading::make('Basis Gegevens'),
             ID::make()->sortable()->hideFromIndex(),
             Text::make('title'),
             Text::make('link'),

@@ -54,7 +54,7 @@ class Level extends Resource
     public function fields(Request $request)
     {
         return [
-            Heading::make('<div class="rounded shadow-lg w-full p-8 font-sans font-bold bg-black text-white px-100">Basis gegevens: </div>')->asHtml()->hideFromDetail(),
+            Heading::make('Basis Gegevens'),
             ID::make()->sortable()->hideFromIndex(),
             Text::make('title'),
             Textarea::make('description'),
@@ -62,7 +62,7 @@ class Level extends Resource
                 return $this->isDone;
             }),
 
-            Heading::make('<div class="rounded shadow-lg w-full p-8 font-sans font-bold bg-black text-white px-100">Modules: </div>')->asHtml()->hideFromDetail(),
+            Heading::make('Modules'),
             BelongsToMany::make('Modules'),
             AttachMany::make('Modules')
                 ->showCounts()
@@ -70,7 +70,7 @@ class Level extends Resource
                 ->help('<b>Tip:</b> Voeg makkelijk levels toe.'),
 
 
-            Heading::make('<div class="rounded shadow-lg w-full p-8 font-sans font-bold bg-black text-white px-100">Users: </div>')->asHtml()->hideFromDetail(),
+            Heading::make('Users'),
             BelongsToMany::make('Users'),
             AttachMany::make('Users')
                 ->showCounts()

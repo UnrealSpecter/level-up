@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Heading;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -43,6 +44,7 @@ class Tag extends Resource
     public function fields(Request $request)
     {
         return [
+            Heading::make('Basis Gegevens'),
             ID::make()->sortable()->hideFromIndex(),
             Text::make('label'),
             Image::make('icon'),

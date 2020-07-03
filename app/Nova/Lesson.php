@@ -54,7 +54,7 @@ class Lesson extends Resource
     public function fields(Request $request)
     {
         return [
-            Heading::make('<div class="rounded shadow-lg w-full p-8 font-sans font-bold bg-black text-white px-100">Basis gegevens: </div>')->asHtml()->hideFromDetail(),
+            Heading::make('Basis Gegevens'),
             ID::make()->sortable()->hideFromIndex(),
             Text::make('title'),
             Textarea::make('description'),
@@ -62,14 +62,14 @@ class Lesson extends Resource
                 return $this->isDone;
             }),
 
-            Heading::make('<div class="rounded shadow-lg w-full p-8 font-sans font-bold bg-black text-white px-100">Modules: </div>')->asHtml()->hideFromDetail(),
+            Heading::make('Modules'),
             BelongsToMany::make('Modules'),
             AttachMany::make('Modules')
                 ->showCounts()
                 ->fullWidth()
                 ->help('<b>Tip:</b> Voeg modules toe.'),
 
-            Heading::make('<div class="rounded shadow-lg w-full p-8 font-sans font-bold bg-black text-white px-100">Subjects: </div>')->asHtml()->hideFromDetail(),
+            Heading::make('Subjects'),
             BelongsToMany::make('Subjects'),
             AttachMany::make('Subjects')
                 ->showCounts()

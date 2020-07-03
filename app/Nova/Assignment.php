@@ -56,6 +56,7 @@ class Assignment extends Resource
     public function fields(Request $request)
     {
         return [
+            Heading::make('Basis Gegevens'),
             ID::make()->sortable()->hideFromIndex(),
             Text::make('title'),
             Textarea::make('description'),

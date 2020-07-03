@@ -57,7 +57,7 @@ class Module extends Resource
     public function fields(Request $request)
     {
         return [
-            Heading::make('<div class="rounded shadow-lg w-full p-8 font-sans font-bold bg-black text-white px-100">Basisgegevens: </div>')->asHtml()->hideFromDetail(),
+            Heading::make('Basis Gegevens'),
             ID::make()->sortable()->hideFromIndex(),
             Text::make('title'),
             Text::make('code'),
@@ -66,11 +66,11 @@ class Module extends Resource
                 return $this->isDone;
             }),
 
-            Heading::make('<div class="rounded shadow-lg w-full p-8 font-sans font-bold bg-black text-white px-100">Voeg een course toe: </div>')->asHtml()->hideFromDetail(),
+            Heading::make('Course'),
             BelongsTo::make('Course'),
 
             // ATTACH LEVELS
-            Heading::make('<div class="rounded shadow-lg w-full p-8 font-sans font-bold bg-black text-white px-100">Voeg een level toe: </div>')->asHtml()->hideFromDetail(),
+            Heading::make('Levels'),
             BelongsToMany::make('Levels'),
             AttachMany::make('Levels')
                 ->showCounts()
@@ -78,7 +78,7 @@ class Module extends Resource
                 ->help('<b>Tip:</b> Voeg levels toe.'),
 
             // ATTACH LESSONS
-            Heading::make('<div class="rounded shadow-lg w-full p-8 font-sans font-bold bg-black text-white px-100">Voeg een les toe: </div>')->asHtml()->hideFromDetail(),
+            Heading::make('Lessen'),
             BelongsToMany::make('Lessons'),
             AttachMany::make('Lessons')
                 ->showCounts()

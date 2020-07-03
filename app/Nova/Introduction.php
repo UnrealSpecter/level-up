@@ -5,6 +5,7 @@ namespace App\Nova;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Trix;
+use Laravel\Nova\Fields\Heading;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -42,6 +43,7 @@ class Introduction extends Resource
     public function fields(Request $request)
     {
         return [
+            Heading::make('Basis Gegevens'),
             ID::make()->sortable()->hideFromIndex(),
             Trix::make('body'),
             BelongsTo::make('Module'),

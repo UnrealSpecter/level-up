@@ -57,7 +57,7 @@ class Subject extends Resource
     {
         return [
 
-            Heading::make('<div class="rounded shadow-lg w-full p-8 font-sans font-bold bg-black text-white px-100">Basis gegevens: </div>')->asHtml()->hideFromDetail(),
+            Heading::make('Basis Gegevens'),
             ID::make()->sortable()->hideFromIndex(),
             Text::make('title'),
             Textarea::make('description'),
@@ -65,7 +65,7 @@ class Subject extends Resource
                 return $this->isDone;
             }),
 
-            Heading::make('<div class="rounded shadow-lg w-full p-8 font-sans font-bold bg-black text-white px-100">Voeg lessen toe: </div>')->asHtml()->hideFromDetail(),
+            Heading::make('Lessen'),
             BelongsToMany::make('Lessons'),
             AttachMany::make('Lessons')
                 ->showCounts()
