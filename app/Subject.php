@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Subject extends Model
 {
-    protected $appends = ['is_done'];
+    use \Staudenmeir\EloquentHasManyDeep\HasRelationships;
+
+    protected $appends = ['is_done', 'tags'];
     protected $fillable = ['title', 'description'];
 
     /**
@@ -29,6 +31,18 @@ class Subject extends Model
     public function materials(){
         return $this->hasMany(Material::class);
     }
+
+    // public function getTagsAttribute()
+    // {
+    //     return $this->hasManyDeep(
+    //         'App\Tag',['App\Material']
+    //     );
+    // }
+
+    public function getTagsAttribute()
+   {
+       return $this->materials->pluck('tags')->collapse()->unique('id');
+   }
 
     /**
     * Get all of the posts for the country.

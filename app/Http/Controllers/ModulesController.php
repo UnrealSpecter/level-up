@@ -27,6 +27,7 @@ class ModulesController extends Controller
             ->get()
             ->find($id);
 
+        // dd($module->lessons->first()->subjects->first()->tags);
         return view('modules.show')->with('module', $module);
     }
 

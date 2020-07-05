@@ -34,15 +34,9 @@ class Assignment extends Model
 
     }
 
-    public function check($answer){
-        if($answer->is_correct){
-            $parent = $this->subjects()->first();
-            $parent->assignments()->updateExistingPivot($this->id, ['is_done' => 1]);
-            return true;
-        }
-        else {
-            return false;
-        }
+    public function markAsDone(){
+        $parent = $this->subjects()->first();
+        $parent->assignments()->updateExistingPivot($this->id, ['is_done' => 1]);
     }
 
 

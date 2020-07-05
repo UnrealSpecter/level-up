@@ -1,6 +1,6 @@
 <template>
 
-    <div class="assignment w-full flex flex-col justify-center bg-white shadow-md rounded-20 px-50 py-25 mb-50">
+    <div class="assignment w-full flex flex-col justify-center mt-50">
 
         <!-- ASSIGNMENT HEADER -->
         <div class="montserrat-regular w-full text-25 text-black flex justify-start items-center">
@@ -43,12 +43,14 @@
                 <div class="assignment-question montserrat-bold text-25">Multiple Choice:</div>
                 <div class="assignment-question montserrat-regular mb-10 text-20">{{ assignment.question }}</div>
                 <div v-if="this.assignment.is_done" class="answers flex flex-col mb-25">
-                    <answer :answer="selectedAnswer"></answer>
+                    <answer :answer="correctAnswer"></answer>
                 </div>
                 <div v-else class="answers flex flex-col mb-25">
                     <form @submit.prevent="submit">
                         <div class="form-group">
-                            <answer v-for="(answer, index) in assignment.answers" :key="index" :answer="answer"></answer>
+                            <!-- <answer v-for="(answer, index) in assignment.answers" :key="index" :answer="answer" :value="answer" v-model="picked"></answer> -->
+                            <!-- <input v-for="(answer, index) in assignment.answers" :key="index" :id="index" class="mr-10" type="radio" :value="answer" :model="picked"> -->
+                            <input v-for="(answer, index) in assignment.answers" class="pl-10" :key="index" type="radio" :id="index" :value="answer" v-model="selectedAnswer">
                         </div>
                         <button class="rounded-20 w-200 h-50 shadow flex justify-center items-center uppercase font-bold text-white bg-black" type="submit">submit</button>
                     </form>
@@ -68,7 +70,8 @@
         data() {
             return {
                 open: !this.assignment.is_done,
-                selectedAnswer: this.assignment.answers[0]
+                selectedAnswer: this.assignment.answers[0],
+                picked: "One"
                 // errors: new Errors(),
             }
         },
@@ -76,18 +79,24 @@
             toggleOpen: function() {
                 this.open = !this.open;
             },
-
+            setSelectedAnswer: function(answer){
+                alert();
+                this.selctedAnswer = answer;
+            },
             submit() {
-                // eventBus.$emit('submittingAssignment', this.selectedAnswer);
-                // console.log(this.selectedAnswer);
-                axios.put(`/assignments/${this.assignment.id}`, { answer: this.selectedAnswer })
-                    .then((response) => {
-                        eventBus.$emit('assignmentUpdated');
-                    })
-                    .catch((error) => {
-                        console.log(error.response.data.errors)
-                        // this.errors = new Errors(error.response.data.errors)
-                    });
+                if(this.selectedAnswer.is_correct){
+                    axios.put(`/assignments/${this.assignment.id}`)
+                        .then((response) => {
+                            eventBus.$emit('assignmentUpdated');
+                        })
+                        .catch((error) => {
+                            console.log(error.response.data.errors)
+                            // this.errors = new Errors(error.response.data.errors)
+                        });
+                }
+                else {
+                    alert('error');
+                }
             },
 
         },
@@ -95,7 +104,7 @@
             correctAnswer: function() {
                 console.log(this.assignment.answers);
                 this.assignment.answers.filter(function(answer){
-                    console.log('loggin asnwer', answer);
+                    // console.log('loggin asnwer', answer);
                     if(answer.is_correct) {
                         return answer;
                     }

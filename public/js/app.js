@@ -251,12 +251,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['index', 'assignment'],
   data: function data() {
     return {
       open: !this.assignment.is_done,
-      selectedAnswer: this.assignment.answers[0] // errors: new Errors(),
+      selectedAnswer: this.assignment.answers[0],
+      picked: "One" // errors: new Errors(),
 
     };
   },
@@ -264,24 +267,27 @@ __webpack_require__.r(__webpack_exports__);
     toggleOpen: function toggleOpen() {
       this.open = !this.open;
     },
+    setSelectedAnswer: function setSelectedAnswer(answer) {
+      alert();
+      this.selctedAnswer = answer;
+    },
     submit: function submit() {
-      // eventBus.$emit('submittingAssignment', this.selectedAnswer);
-      // console.log(this.selectedAnswer);
-      axios.put("/assignments/".concat(this.assignment.id), {
-        answer: this.selectedAnswer
-      }).then(function (response) {
-        eventBus.$emit('assignmentUpdated');
-      })["catch"](function (error) {
-        console.log(error.response.data.errors); // this.errors = new Errors(error.response.data.errors)
-      });
+      if (this.selectedAnswer.is_correct) {
+        axios.put("/assignments/".concat(this.assignment.id)).then(function (response) {
+          eventBus.$emit('assignmentUpdated');
+        })["catch"](function (error) {
+          console.log(error.response.data.errors); // this.errors = new Errors(error.response.data.errors)
+        });
+      } else {
+        alert('error');
+      }
     }
   },
   computed: {
     correctAnswer: function correctAnswer() {
       console.log(this.assignment.answers);
       this.assignment.answers.filter(function (answer) {
-        console.log('loggin asnwer', answer);
-
+        // console.log('loggin asnwer', answer);
         if (answer.is_correct) {
           return answer;
         }
@@ -1596,8 +1602,7 @@ var render = function() {
     [
       _c("input", {
         staticClass: "mr-10",
-        attrs: { checked: "false", type: "radio", name: "answer" },
-        domProps: { value: _vm.answer }
+        attrs: { checked: "false", type: "radio" }
       }),
       _vm._v(_vm._s(_vm.answer.answer))
     ]
@@ -1627,10 +1632,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    {
-      staticClass:
-        "assignment w-full flex flex-col justify-center bg-white shadow-md rounded-20 px-50 py-25 mb-50"
-    },
+    { staticClass: "assignment w-full flex flex-col justify-center mt-50" },
     [
       _c(
         "div",
@@ -1778,7 +1780,7 @@ var render = function() {
               ? _c(
                   "div",
                   { staticClass: "answers flex flex-col mb-25" },
-                  [_c("answer", { attrs: { answer: _vm.selectedAnswer } })],
+                  [_c("answer", { attrs: { answer: _vm.correctAnswer } })],
                   1
                 )
               : _c("div", { staticClass: "answers flex flex-col mb-25" }, [
@@ -1797,12 +1799,30 @@ var render = function() {
                         "div",
                         { staticClass: "form-group" },
                         _vm._l(_vm.assignment.answers, function(answer, index) {
-                          return _c("answer", {
+                          return _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.selectedAnswer,
+                                expression: "selectedAnswer"
+                              }
+                            ],
                             key: index,
-                            attrs: { answer: answer }
+                            staticClass: "pl-10",
+                            attrs: { type: "radio", id: index },
+                            domProps: {
+                              value: answer,
+                              checked: _vm._q(_vm.selectedAnswer, answer)
+                            },
+                            on: {
+                              change: function($event) {
+                                _vm.selectedAnswer = answer
+                              }
+                            }
                           })
                         }),
-                        1
+                        0
                       ),
                       _vm._v(" "),
                       _c(
@@ -2561,7 +2581,7 @@ var render = function() {
         staticClass: "subject-wrapper w-5/6 flex justify-start flex-col"
       },
       [
-        _c("div", { staticClass: "w-full mb-50" }, [
+        _c("div", { staticClass: "w-full" }, [
           _c(
             "div",
             {
@@ -2591,6 +2611,46 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "div",
+                {
+                  staticClass:
+                    "tag-wrapper overflow-hidden flex flex-row justify-start items-center mb-25 shadow-md rounded-10"
+                },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "mr-25 p-25 montserrat-bold text-20 uppercase bg-black text-white"
+                    },
+                    [_vm._v("tag filter")]
+                  ),
+                  _vm._v(" "),
+                  _vm._l(_vm.subject.tags, function(tag, index) {
+                    return _c(
+                      "div",
+                      {
+                        key: index,
+                        staticClass:
+                          "shadow mr-10 flex flex-row flex-no-wrap rounded-20 pl-10 pr-15 py-5 justify-center items-center"
+                      },
+                      [
+                        _c("img", {
+                          staticClass: "w-25 mr-10",
+                          attrs: { src: "../storage/" + tag.icon }
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "montserrat-bold mt-5" }, [
+                          _vm._v(_vm._s(tag.label))
+                        ])
+                      ]
+                    )
+                  })
+                ],
+                2
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
                 { staticClass: "w-full grid grid-cols-3 gap-50 mb-50" },
                 _vm._l(_vm.subject.materials, function(material, index) {
                   return _c("material", {
@@ -2604,53 +2664,60 @@ var render = function() {
           : _vm._e(),
         _vm._v(" "),
         _vm.subject.assignments.length
-          ? _c("div", { staticClass: "flex flex-col" }, [
-              _vm.subject.assignments.length
-                ? _c("div", { staticClass: "w-full mb-50" }, [
-                    _c(
+          ? _c(
+              "div",
+              {
+                staticClass:
+                  "flex flex-col p-50 shadow-lg rounded-20 bg-white mb-50"
+              },
+              [
+                _vm.subject.assignments.length
+                  ? _c("div", { staticClass: "w-full" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "lesson-description-title montserrat-bold text-40 text-black mb-25"
+                        },
+                        [_vm._v("De Opdrachten")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "p",
+                        {
+                          staticClass:
+                            "lesson-description montserrat-regular text-20 text-black"
+                        },
+                        [
+                          _vm._v(
+                            "Hier zou nog een uitgebreide inleiding kunnen komen bij de opdrachten die horen bij deze les. Zoals tips of hints of aandachtspunten."
+                          )
+                        ]
+                      )
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.subject.assignments.length
+                  ? _c(
                       "div",
                       {
-                        staticClass:
-                          "lesson-description-title montserrat-bold text-40 text-black mb-25"
+                        staticClass: "w-full",
+                        attrs: { id: "assignment-wrapper" }
                       },
-                      [_vm._v("De Opdrachten")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "p",
-                      {
-                        staticClass:
-                          "lesson-description montserrat-regular text-20 text-black"
-                      },
-                      [
-                        _vm._v(
-                          "Hier zou nog een uitgebreide inleiding kunnen komen bij de opdrachten die horen bij deze les. Zoals tips of hints of aandachtspunten."
-                        )
-                      ]
+                      _vm._l(_vm.subject.assignments, function(
+                        assignment,
+                        index
+                      ) {
+                        return _c("assignment", {
+                          key: index,
+                          attrs: { index: index + 1, assignment: assignment }
+                        })
+                      }),
+                      1
                     )
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.subject.assignments.length
-                ? _c(
-                    "div",
-                    {
-                      staticClass: "w-full",
-                      attrs: { id: "assignment-wrapper" }
-                    },
-                    _vm._l(_vm.subject.assignments, function(
-                      assignment,
-                      index
-                    ) {
-                      return _c("assignment", {
-                        key: index,
-                        attrs: { index: index + 1, assignment: assignment }
-                      })
-                    }),
-                    1
-                  )
-                : _vm._e()
-            ])
+                  : _vm._e()
+              ]
+            )
           : _vm._e()
       ]
     )
@@ -4032,8 +4099,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! F:\Code\Projects\level-up\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! F:\Code\Projects\level-up\resources\sass\app.css */"./resources/sass/app.css");
+__webpack_require__(/*! /home/vagrant/code/level-up/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/vagrant/code/level-up/resources/sass/app.css */"./resources/sass/app.css");
 
 
 /***/ })
