@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Level extends Model
 {
     // use PivotEventTrait;
-    protected $appends = ['is_done'];
+    protected $appends = ['is_done', 'progress'];
     protected $fillable = ['title', 'description'];
 
     /**
@@ -33,6 +33,12 @@ class Level extends Model
         }
 
         return $isDone;
+    }
+
+    public function getProgressAttribute(){
+        $totalModules = count($this->modules);
+        $modulesDone = count($this->modules->where('is_done', true));
+        return round($modulesDone / $totalModules * 100);
     }
 
 }

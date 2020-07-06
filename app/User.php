@@ -11,6 +11,8 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    protected $appends = ['full_name', 'current_level'];
+
     /**
      * The attributes that are mass assignable.
      *
@@ -38,7 +40,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function getNameAttribute()
+    public function getFullNameAttribute()
     {
         return $this->first_name . ' ' . $this->last_name;
     }
@@ -49,6 +51,10 @@ class User extends Authenticatable
     public function levels()
     {
         return $this->belongsToMany(Level::class, 'user_level');
+    }
+
+    public function getCurrentLevelAttribute(){
+        return $this->levels->where('is_done', true)->first() !== null ? $this->levels->where('is_done', true)->first() : $this->levels->first();
     }
 
 }

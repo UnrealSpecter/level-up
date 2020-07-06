@@ -5,12 +5,12 @@
         <div class="title text-center flex flex-col flex-grow justify-center items-center">
 
             <!-- TAGS -->
-            <div v-if="material.tags.length" class="tag-wrapper flex flex-row justify-center mb-25">
+            <!-- <div v-if="material.tags.length" class="tag-wrapper flex flex-row justify-center mb-25">
                 <div v-for="(tag, index) in material.tags" :key="index" class="mr-10 flex flex-row flex-no-wrap rounded-20 pl-10 pr-15 py-5 shadow justify-center items-center">
                     <img :src="`../storage/${ tag.icon }`" class="w-25 mr-10">
                     <div class="montserrat-bold mt-5">{{ tag.label }}</div>
                 </div>
-            </div>
+            </div> -->
 
             <!-- VOTE SYSTEM -->
             <!-- <div class="shadow bg-white p-10 rounded-20 likes w-3/4 montserrat-regular text-center mb-25 flex flex-row flex-no-wrap justify-center items-center">

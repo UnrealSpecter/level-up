@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Request;
+
 use App\Module;
 use App\Level;
 use App\Answer;
-use Illuminate\Support\Facades\View;
-use Illuminate\Support\Facades\Request;
 
 class ModulesController extends Controller
 {
@@ -16,7 +17,7 @@ class ModulesController extends Controller
             ->get()
             ->map->only('id', 'title', 'description', 'modules');
 
-        return view('modules.index')->with('levels', $levels);
+        return view('modules.index', compact('levels', $levels));
     }
 
 
@@ -27,7 +28,6 @@ class ModulesController extends Controller
             ->get()
             ->find($id);
 
-        // dd($module->lessons->first()->subjects->first()->tags);
         return view('modules.show')->with('module', $module);
     }
 

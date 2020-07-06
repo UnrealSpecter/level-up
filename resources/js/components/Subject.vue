@@ -32,7 +32,7 @@
         <div v-show="open" class="subject-wrapper w-5/6 flex justify-start flex-col">
 
             <!-- SUBJECT DESCRIPTION -->
-            <div class="w-full">
+            <div class="w-full mb-50">
                 <div class="lesson-description-title montserrat-bold text-40 text-black mb-25">De Theorie</div>
                 <p class="lesson-description montserrat-regular text-20 text-black" v-html="subject.description"></p>
             </div>
@@ -40,16 +40,16 @@
             <!-- MATERIALS WRAPPER -->
             <div v-if="subject.materials.length" class="flex flex-col">
 
-                <div class="material-title montserrat-bold text-40 text-black mb-25">De Informatie</div>
+                <div class="material-title montserrat-bold text-40 text-black mb-25">De Bronnen</div>
 
                 <!-- MATERIAL TAG FILTER -->
-                <div class="tag-wrapper overflow-hidden flex flex-row justify-start items-center mb-25 shadow-md rounded-10">
+                <!-- <div class="tag-wrapper overflow-hidden flex flex-row justify-start items-center mb-25 shadow-md rounded-10">
                     <div class="mr-25 p-25 montserrat-bold text-20 uppercase bg-black text-white">tag filter</div>
                     <div v-for="(tag, index) in subject.tags" :key="index" class="shadow mr-10 flex flex-row flex-no-wrap rounded-20 pl-10 pr-15 py-5 justify-center items-center">
                         <img :src="`../storage/${ tag.icon }`" class="w-25 mr-10">
                         <div class="montserrat-bold mt-5">{{ tag.label }}</div>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- MATERIALS -->
                 <div class="w-full grid grid-cols-3 gap-50 mb-50">

@@ -48,11 +48,11 @@
                 <div v-else class="answers flex flex-col mb-25">
                     <form @submit.prevent="submit">
                         <div class="form-group">
-                            <!-- <answer v-for="(answer, index) in assignment.answers" :key="index" :answer="answer" :value="answer" v-model="picked"></answer> -->
-                            <!-- <input v-for="(answer, index) in assignment.answers" :key="index" :id="index" class="mr-10" type="radio" :value="answer" :model="picked"> -->
-                            <input v-for="(answer, index) in assignment.answers" class="pl-10" :key="index" type="radio" :id="index" :value="answer" v-model="selectedAnswer">
+                            <div v-for="(answer, index) in assignment.answers" :key="index" :id="index" class="montserrat-bold text-18 flex items-center">
+                                <input class="mr-10" type="radio" :value="answer" v-model="selectedAnswer">{{ answer.answer }}</input>
+                            </div>
                         </div>
-                        <button class="rounded-20 w-200 h-50 shadow flex justify-center items-center uppercase font-bold text-white bg-black" type="submit">submit</button>
+                        <button class="mt-25 rounded-20 w-200 h-50 shadow flex justify-center items-center uppercase font-bold text-white bg-black" type="submit">submit</button>
                     </form>
                 </div>
 
@@ -71,7 +71,6 @@
             return {
                 open: !this.assignment.is_done,
                 selectedAnswer: this.assignment.answers[0],
-                picked: "One"
                 // errors: new Errors(),
             }
         },
