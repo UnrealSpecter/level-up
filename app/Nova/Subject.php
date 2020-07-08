@@ -65,7 +65,7 @@ class Subject extends Resource
                 return $this->isDone;
             }),
 
-            Heading::make('Lessen'),
+            Heading::make('Lessen')->hideFromDetail(),
             BelongsToMany::make('Lessons'),
             AttachMany::make('Lessons')
                 ->showCounts()

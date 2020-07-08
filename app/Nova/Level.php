@@ -62,7 +62,7 @@ class Level extends Resource
                 return $this->isDone;
             }),
 
-            Heading::make('Modules'),
+            Heading::make('Modules')->hideFromDetail(),
             BelongsToMany::make('Modules'),
             AttachMany::make('Modules')
                 ->showCounts()
@@ -70,7 +70,7 @@ class Level extends Resource
                 ->help('<b>Tip:</b> Voeg makkelijk levels toe.'),
 
 
-            Heading::make('Users'),
+            Heading::make('Users')->hideFromDetail(),
             BelongsToMany::make('Users'),
             AttachMany::make('Users')
                 ->showCounts()

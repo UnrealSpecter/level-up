@@ -78,7 +78,7 @@ class User extends Resource
                 ->creationRules('required', 'string', 'min:8')
                 ->updateRules('nullable', 'string', 'min:8'),
 
-            Heading::make('Levels'),
+            Heading::make('Levels')->hideFromDetail(),
             BelongsToMany::make('Levels'),
             AttachMany::make('Levels')
                 ->showCounts()

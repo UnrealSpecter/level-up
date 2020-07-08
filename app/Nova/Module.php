@@ -70,7 +70,7 @@ class Module extends Resource
             BelongsTo::make('Course'),
 
             // ATTACH LEVELS
-            Heading::make('Levels'),
+            Heading::make('Levels')->hideFromDetail(),
             BelongsToMany::make('Levels'),
             AttachMany::make('Levels')
                 ->showCounts()
@@ -78,7 +78,7 @@ class Module extends Resource
                 ->help('<b>Tip:</b> Voeg levels toe.'),
 
             // ATTACH LESSONS
-            Heading::make('Lessen'),
+            Heading::make('Lessen')->hideFromDetail(),
             BelongsToMany::make('Lessons'),
             AttachMany::make('Lessons')
                 ->showCounts()
