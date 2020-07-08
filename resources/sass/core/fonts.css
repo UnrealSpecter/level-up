@@ -26,7 +26,7 @@ pre {
     background: black;
     color: white;
     padding: 50px;
-    font-family: montserrat;
+    font-family: montserrat, sans-serif;
     font-weight: 400;
     font-style: normal;
 }
