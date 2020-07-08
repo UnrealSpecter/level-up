@@ -33,14 +33,14 @@
 
             <!-- SUBJECT DESCRIPTION -->
             <div class="w-full mb-50">
-                <div class="lesson-description-title montserrat-bold text-40 text-black mb-25">De Theorie</div>
+                <div class="lesson-description-title montserrat-bold text-40 text-black mb-25">Theorie</div>
                 <p class="lesson-description montserrat-regular text-20 text-black" v-html="subject.description"></p>
             </div>
 
             <!-- MATERIALS WRAPPER -->
             <div v-if="subject.materials.length" class="flex flex-col">
 
-                <div class="material-title montserrat-bold text-40 text-black mb-25">De Bronnen</div>
+                <div class="material-title montserrat-bold text-40 text-black mb-25">Bronnen</div>
 
                 <!-- MATERIAL TAG FILTER -->
                 <!-- <div class="tag-wrapper overflow-hidden flex flex-row justify-start items-center mb-25 shadow-md rounded-10">
@@ -63,7 +63,7 @@
 
                 <!-- ASSIGNMENT DESCRIPTION -->
                 <div v-if="subject.assignments.length" class="w-full">
-                    <div class="lesson-description-title montserrat-bold text-40 text-black mb-25">De Opdrachten</div>
+                    <div class="lesson-description-title montserrat-bold text-40 text-black mb-25">Opdrachten</div>
                     <p class="lesson-description montserrat-regular text-20 text-black">Hier zou nog een uitgebreide inleiding kunnen komen bij de opdrachten die horen bij deze les. Zoals tips of hints of aandachtspunten.</p>
                 </div>
 

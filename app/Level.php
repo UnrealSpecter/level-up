@@ -6,13 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Level extends Model
 {
-    // use PivotEventTrait;
     protected $appends = ['is_done', 'progress'];
     protected $fillable = ['title', 'description'];
 
-    /**
-     * The lesson that belong to a user
-     */
     public function modules()
     {
         return $this->belongsToMany(Module::class, 'level_module');

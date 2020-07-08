@@ -10,10 +10,9 @@ use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\Heading;
-use Yassi\NestedForm\NestedForm;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-
+use Yassi\NestedForm\NestedForm;
 
 class Assignment extends Resource
 {
@@ -23,6 +22,7 @@ class Assignment extends Resource
     * @var int
     */
     public static $priority = 7;
+    public static $displayInNavigation = false;
 
     /**
      * The model the resource corresponds to.
@@ -60,9 +60,6 @@ class Assignment extends Resource
             ID::make()->sortable()->hideFromIndex(),
             Text::make('title'),
             Textarea::make('description'),
-            Boolean::make('Is Done', function () {
-                return $this->isDone;
-            }),
             BelongsToMany::make('Subjects'),
             NestedForm::make('Answers'),
         ];

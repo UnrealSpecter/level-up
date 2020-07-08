@@ -13,9 +13,6 @@ class Module extends Model
         return $this->hasOne(Introduction::class);
     }
 
-    /**
-     * The lesson that belong to a user
-     */
     public function lessons()
     {
         return $this->belongsToMany(Lesson::class, 'module_lesson');

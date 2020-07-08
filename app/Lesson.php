@@ -9,9 +9,6 @@ class Lesson extends Model
     protected $appends = ['is_done'];
     protected $fillable = ['title', 'description'];
 
-    /**
-     * The Subjects for the lesson.
-     */
     public function subjects(){
         return $this->belongsToMany(Subject::class, 'lesson_subject');
     }

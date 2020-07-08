@@ -9,22 +9,16 @@ class Assignment extends Model
     protected $appends = ['is_done'];
     protected $fillable = ['title', 'description'];
 
-    /*
-    * The Answers belonging to a Assignment.
-    */
     public function answers(){
         return $this->hasMany(Answer::class);
     }
 
-    /*
-    * The Answers belonging to a Assignment.
-    */
     public function subjects(){
         return $this->belongsToMany(Subject::class, 'subject_assignment')->withPivot('is_done');
     }
 
     public function getIsDoneAttribute() {
-        if($this->pivot){
+        if(isset($this->pivot)){
             return $this->pivot->is_done ? true : false;
         }
         else {

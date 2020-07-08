@@ -13,29 +13,14 @@ class User extends Authenticatable
 
     protected $appends = ['full_name', 'current_level'];
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'first_name', 'last_name', 'email', 'password',
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
     protected $hidden = [
         'password', 'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
@@ -45,9 +30,6 @@ class User extends Authenticatable
         return $this->first_name . ' ' . $this->last_name;
     }
 
-    /**
-     * The lesson that belong to a user
-     */
     public function levels()
     {
         return $this->belongsToMany(Level::class, 'user_level');

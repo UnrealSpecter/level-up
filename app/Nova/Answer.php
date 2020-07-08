@@ -18,6 +18,7 @@ class Answer extends Resource
     * @var int
     */
     public static $priority = 8;
+    public static $displayInNavigation = false;
 
     /**
      * The model the resource corresponds to.
