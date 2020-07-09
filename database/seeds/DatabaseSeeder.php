@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
         factory(App\Course::class, 3)->create();
 
         //create a user
-        factory(App\User::class, 1)->create()->each(function ($user) {
+        factory(App\User::class, 3)->create()->each(function ($user) {
 
             //create tags for later use
             $tags = factory(App\Tag::class, 4)->create();
@@ -66,7 +66,7 @@ class DatabaseSeeder extends Seeder
                             foreach($assignments as $assignment){
 
                                 // randomize assignment done state
-                                $subject->assignments()->updateExistingPivot($assignment->id, ['is_done' => mt_rand(0,1)]);
+                                mt_rand(0, 1) ? $assignment->markAsDone() : null ;
 
                                 // create and assign answers to a assignment
                                 $answers = factory(App\Answer::class, 3)->make();

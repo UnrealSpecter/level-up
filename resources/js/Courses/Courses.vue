@@ -1,6 +1,6 @@
 <template>
     <container>
-        <level v-for="level in levels" :key="level.id" :index="level.id" :level="level"></level>
+        <course v-for="(course, index) in courses" :key="index" :index="index" :course="course"></level>
     </container>
 </template>
 

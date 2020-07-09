@@ -23,7 +23,7 @@
                     <div class="w-1/2 h-full flex flex-col justify-between">
 
                         <!-- USER LEVEL -->
-                        <div class="flex flex-col">
+                        <div class="flex flex-col p-50 shadow-md justify-center items-center rounded-20">
 
                             <div class="montserrat text-gray-700 text-30 -mb-10 whitespace-no-wrap">
                                 Level 2 - Javscript Wizard
@@ -40,7 +40,7 @@
                         <div class="w-full flex flex-col items-between">
                             <a href="/courses" class="w-full rounded-20 shadow-md flex flex-row flex-no-wrap justify-between items-center mb-25 py-25 px-50">
                                 <div class="montserrat-bold text-25 uppercase">
-                                    Bekijk Course Overzicht
+                                    Bekijk Domein Overzicht
                                 </div>
                                 <img class="icon-50" src="/assets/icons/arrow.svg" />
                             </a>
@@ -54,7 +54,7 @@
 
                             <a href="/progression" class="w-full rounded-20 shadow-md flex flex-row flex-no-wrap justify-between  items-center py-25 px-50">
                                 <div class="montserrat-bold text-25 uppercase">
-                                    Bekijk Course Overzicht
+                                    Verder Met De Les
                                 </div>
                                 <img class="icon-50" src="/assets/icons/arrow.svg" />
                             </a>

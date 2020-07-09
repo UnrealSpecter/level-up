@@ -1475,33 +1475,40 @@ var render = function() {
                   "div",
                   { staticClass: "w-1/2 h-full flex flex-col justify-between" },
                   [
-                    _c("div", { staticClass: "flex flex-col" }, [
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "montserrat text-gray-700 text-30 -mb-10 whitespace-no-wrap"
-                        },
-                        [
-                          _vm._v(
-                            "\n                            Level 2 - Javscript Wizard\n                        "
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "montserrat-bold text-black text-100 whitespace-no-wrap"
-                        },
-                        [
-                          _vm._v(
-                            "\n                            Tomi Ristic\n                        "
-                          )
-                        ]
-                      )
-                    ]),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "flex flex-col p-50 shadow-md justify-center items-center rounded-20"
+                      },
+                      [
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "montserrat text-gray-700 text-30 -mb-10 whitespace-no-wrap"
+                          },
+                          [
+                            _vm._v(
+                              "\n                            Level 2 - Javscript Wizard\n                        "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "montserrat-bold text-black text-100 whitespace-no-wrap"
+                          },
+                          [
+                            _vm._v(
+                              "\n                            Tomi Ristic\n                        "
+                            )
+                          ]
+                        )
+                      ]
+                    ),
                     _vm._v(" "),
                     _c(
                       "div",
@@ -1522,7 +1529,7 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  "\n                                Bekijk Course Overzicht\n                            "
+                                  "\n                                Bekijk Domein Overzicht\n                            "
                                 )
                               ]
                             ),
@@ -1576,7 +1583,7 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  "\n                                Bekijk Course Overzicht\n                            "
+                                  "\n                                Verder Met De Les\n                            "
                                 )
                               ]
                             ),
@@ -1765,23 +1772,8 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "container",
-    _vm._l(_vm.levels, function(level) {
-      return _c("level", {
-        key: level.id,
-        attrs: { index: level.id, level: level }
-      })
-    }),
-    1
-  )
-}
+var render = function () {}
 var staticRenderFns = []
-render._withStripped = true
 
 
 
@@ -3007,7 +2999,7 @@ var render = function() {
               staticClass:
                 "lesson-description-title montserrat-bold text-40 text-black mb-25"
             },
-            [_vm._v("De Theorie")]
+            [_vm._v("Theorie")]
           ),
           _vm._v(" "),
           _c("p", {
@@ -3025,7 +3017,7 @@ var render = function() {
                   staticClass:
                     "material-title montserrat-bold text-40 text-black mb-25"
                 },
-                [_vm._v("De Bronnen")]
+                [_vm._v("Bronnen")]
               ),
               _vm._v(" "),
               _c(
@@ -3058,7 +3050,7 @@ var render = function() {
                           staticClass:
                             "lesson-description-title montserrat-bold text-40 text-black mb-25"
                         },
-                        [_vm._v("De Opdrachten")]
+                        [_vm._v("Opdrachten")]
                       ),
                       _vm._v(" "),
                       _c(

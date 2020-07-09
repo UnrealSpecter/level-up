@@ -4,12 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\User;
+use App\Course;
 
 class CoursesController extends Controller
 {
     public function index(){
-        $users = User::with('levels.modules.');
-        return view('courses.index', compact('users', $users));
+        // $courses = Course::with('modules')->get();
+        // return view('courses.index', compact('courses', $courses));
     }
 }
