@@ -18,13 +18,13 @@ class Assignment extends Model
     }
 
     public function getIsDoneAttribute() {
-        if(isset($this->pivot)){
-            return $this->pivot->is_done ? true : false;
-        }
-        else {
+        // if(isset($this->pivot)){
+        //     return $this->pivot->is_done ? true : false;
+        // }
+        // else {
             $parent = $this->subjects->first();
             return $parent->pivot->is_done ? true : false;
-        }
+        // }
 
     }
 

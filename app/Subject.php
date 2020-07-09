@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Subject extends Model
 {
-    protected $appends = ['is_done', 'tags'];
+    protected $appends = ['tags'];
     protected $fillable = ['title', 'description'];
 
     public function lessons(){
@@ -26,17 +26,17 @@ class Subject extends Model
         return $this->materials->pluck('tags')->collapse()->unique('id');
     }
 
-    public function getIsDoneAttribute() {
-        $children = $this->assignments;
-        $isDone = true;
-
-        foreach($children as $child){
-            if(!$child->isDone){
-                $isDone = false;
-            }
-        }
-
-        return $isDone;
-    }
+    // public function getIsDoneAttribute() {
+    //     $children = $this->assignments;
+    //     $isDone = true;
+    //
+    //     foreach($children as $child){
+    //         if(!$child->isDone){
+    //             $isDone = false;
+    //         }
+    //     }
+    //
+    //     return $isDone;
+    // }
 
 }

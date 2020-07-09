@@ -20,7 +20,7 @@ mix.js('resources/js/app.js', 'public/js')
             require('postcss-custom-properties'),
             require('autoprefixer'),
     ])
-    .extract(['vue', 'axios'])
+    .extract(['vue', 'axios', 'lodash'])
     .version()
     .purgeCss();
 

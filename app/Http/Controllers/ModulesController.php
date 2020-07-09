@@ -16,7 +16,7 @@ class ModulesController extends Controller
         $levels = Level::with('modules')
             ->get()
             ->map->only('id', 'title', 'description', 'modules');
-
+            
         return view('modules.index', compact('levels', $levels));
     }
 

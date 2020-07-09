@@ -11,7 +11,7 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    protected $appends = ['full_name', 'current_level'];
+    protected $appends = ['full_name'];
 
     protected $fillable = [
         'first_name', 'last_name', 'email', 'password',
@@ -35,8 +35,8 @@ class User extends Authenticatable
         return $this->belongsToMany(Level::class, 'user_level');
     }
 
-    public function getCurrentLevelAttribute(){
-        return $this->levels->where('is_done', true)->first() !== null ? $this->levels->where('is_done', true)->first() : $this->levels->first();
-    }
+    // public function getCurrentLevelAttribute(){
+    //     return $this->levels->where('is_done', true)->first() !== null ? $this->levels->where('is_done', true)->first() : $this->levels->first();
+    // }
 
 }

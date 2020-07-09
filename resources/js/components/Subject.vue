@@ -84,13 +84,38 @@
         props: ['subject', 'index'],
         data() {
             return {
-                open: true
+                open: true,
             }
         },
         methods: {
             toggleOpen: function() {
                 this.open = !this.open;
             }
-        }
+        },
+        computed: {
+            // totalLessons: function () {
+            //     return this.module.lessons.length;
+            // },
+            // lessonsDone: function () {
+            //     let lessonsDone = 0;
+            //     for (let index = 0; index < this.module.lessons.length; index++) {
+            //         if(this.module.lessons[index].is_done){
+            //             lessonsDone++;
+            //         }
+            //     }
+            //     return lessonsDone;
+            // },
+            // is_done: function(){
+            //     let is_done = true;
+            //     for(let index = 0; index < this.subject.assignments.length; index++){
+            //             var assignment = this.subject.assignments[index];
+            //             console.log(assignment);
+            //             if(!assignment.pivot.is_done){
+            //                 is_done = false;
+            //             }
+            //     }
+            //     return is_done;
+            // },
+        },
     }
 </script>

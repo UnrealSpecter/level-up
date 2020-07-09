@@ -7,7 +7,7 @@
 
             <!-- ASSIGNMENT IS DONE -->
             <div class="flex-grow flex justify-start items-center">
-                <div v-if="assignment.is_done" class="h-50 w-50 mr-50 rounded-50 flex justify-center items-center text-white bg-black font-bold">
+                <div v-if="assignment.pivot.is_done" class="h-50 w-50 mr-50 rounded-50 flex justify-center items-center text-white bg-black font-bold">
                     <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                         <path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/>
                     </svg>
@@ -42,7 +42,7 @@
             <div class="multiple-choice-assignment">
                 <div class="assignment-question montserrat-bold text-25">Multiple Choice:</div>
                 <div class="assignment-question montserrat-regular mb-10 text-20">{{ assignment.question }}</div>
-                <div v-if="this.assignment.is_done" class="answers flex flex-col mb-25">
+                <div v-if="this.assignment.pivot.is_done" class="answers flex flex-col mb-25">
                     <answer :answer="correctAnswer"></answer>
                 </div>
                 <div v-else class="answers flex flex-col mb-25">
@@ -101,7 +101,7 @@
         },
         computed: {
             correctAnswer: function() {
-                console.log(this.assignment.answers);
+                // console.log(this.assignment.answers);
                 this.assignment.answers.filter(function(answer){
                     // console.log('loggin asnwer', answer);
                     if(answer.is_correct) {
@@ -109,7 +109,7 @@
                     }
                 });
                 return this.selectedAnswer;
-            }
+            },
         }
     }
 </script>

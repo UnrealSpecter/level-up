@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Lesson extends Model
 {
-    protected $appends = ['is_done'];
     protected $fillable = ['title', 'description'];
 
     public function subjects(){
@@ -17,17 +16,17 @@ class Lesson extends Model
         return $this->belongsToMany(Module::class, 'module_lesson');
     }
 
-    public function getIsDoneAttribute() {
-        $children = $this->subjects;
-        $isDone = true;
-
-        foreach($children as $child){
-            if(!$child->isDone){
-                $isDone = false;
-            }
-        }
-
-        return $isDone;
-    }
+    // public function getIsDoneAttribute() {
+    //     $children = $this->subjects;
+    //     $isDone = true;
+    //
+    //     foreach($children as $child){
+    //         if(!$child->isDone){
+    //             $isDone = false;
+    //         }
+    //     }
+    //
+    //     return $isDone;
+    // }
 
 }

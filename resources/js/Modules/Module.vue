@@ -55,39 +55,86 @@
 </template>
 
 <script>
+    import { forEach } from "lodash";
     export default {
         props: ['data'],
         data (){
             return {
-                module: this.data
+                module: null,
+                progress: null
             }
         },
         created () {
-            eventBus.$on('assignmentUpdated', this.fetchModule)  // 3.Listening
+            eventBus.$on('assignmentUpdated', this.fetchModule)
+            this.calculateIsDone()
         },
         methods: {
             fetchModule(){
                 axios.get(`/modules/fetch/${this.module.id}`)
                 .then((response) => {
-                    this.module = response.data;
+                    this.module = this.calculateIsDone(response.data);
+                    this.progress = this.calculateProgress();
                 }).catch((error) => {
                     console.log(error.response.data.errors)
                 });
-            }
-        },
-        computed: {
-            totalLessons: function () {
-                return this.module.lessons.length;
             },
-            lessonsDone: function () {
-                let lessonsDone = 0;
-                for (let index = 0; index < this.module.lessons.length; index++) {
-                    if(this.module.lessons[index].is_done){
-                        lessonsDone++;
+            calculateIsDone(module = this.data){
+
+                let vm = this;
+                let moduleIsDone = true;
+
+                forEach(module.lessons, function(lesson, lessonIndex){
+                    let lessonIsDone = true;
+                    forEach(lesson.subjects, function(subject, subjectIndex){
+                        let subjectIsDone = true;
+                        forEach(subject.assignments, function(assignment){
+                            if(!assignment.is_done){
+                                subjectIsDone = false;
+                            }
+                        });
+                        module.lessons[lessonIndex].subjects[subjectIndex].is_done = subjectIsDone;
+                        if(!module.lessons[lessonIndex].subjects[subjectIndex].is_done){
+                            lessonIsDone = false;
+                        }
+                    });
+                    module.lessons[lessonIndex].is_done = lessonIsDone;
+                    if(!module.lessons[lessonIndex].is_done){
+                        moduleIsDone = false;
                     }
-                }
-                return lessonsDone;
+                });
+
+                // public function getProgressAttribute(){
+                //     $totalModules = count($this->modules);
+                //     $modulesDone = count($this->modules->where('is_done', true));
+                //     return round($modulesDone / $totalModules * 100);
+                // }
+                module.total_lessons = module.lessons.length;
+
+                forEach(module.lessons, function(lesson, index){
+                    module.lessons[index].total_subjects = lesson.subjects.length;
+                });
+
+                vm.module = module;
+                vm.module.is_done = moduleIsDone;
+
+
             },
         },
+        // computed: {
+        //     totalLessons: function () {
+        //         return this.module.lessons.length;
+        //     },
+        //     lessonsDone: function () {
+        //         let lessonsDone = 0;
+        //         for (let index = 0; index < this.module.lessons.length; index++) {
+        //             if(this.module.lessons[index].is_done){
+        //                 lessonsDone++;
+        //             }
+        //         }
+        //         return lessonsDone;
+        //     },
+        // },
+
+
     }
 </script>

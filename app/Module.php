@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Module extends Model
 {
-    protected $appends = ['is_done', 'totalLessons', 'lessonsDone'];
+    // protected $appends = ['is_done', 'totalLessons', 'lessonsDone'];
     protected $fillable = ['title', 'code', 'description'];
 
     public function introduction(){
@@ -26,31 +26,31 @@ class Module extends Model
         return $this->belongsToMany(Level::class, 'level_module');
     }
 
-    public function getTotalLessonsAttribute(){
-        return count($this->lessons);
-    }
+    // public function getTotalLessonsAttribute(){
+    //     return count($this->lessons);
+    // }
 
-    public function getLessonsDoneAttribute(){
-        $lessonsDone = 0;
-        foreach($this->lessons as $lesson){
-            if($lesson->isDone){
-                $lessonsDone++;
-            }
-        }
-        return $lessonsDone;
-    }
-
-    public function getIsDoneAttribute() {
-        $children = $this->lessons;
-        $isDone = true;
-
-        foreach($children as $child){
-            if(!$child->isDone){
-                $isDone = false;
-            }
-        }
-
-        return $isDone;
-    }
+    // public function getLessonsDoneAttribute(){
+    //     $lessonsDone = 0;
+    //     foreach($this->lessons as $lesson){
+    //         if($lesson->isDone){
+    //             $lessonsDone++;
+    //         }
+    //     }
+    //     return $lessonsDone;
+    // }
+    //
+    // public function getIsDoneAttribute() {
+    //     $children = $this->lessons;
+    //     $isDone = true;
+    //
+    //     foreach($children as $child){
+    //         if(!$child->isDone){
+    //             $isDone = false;
+    //         }
+    //     }
+    //
+    //     return $isDone;
+    // }
 
 }
