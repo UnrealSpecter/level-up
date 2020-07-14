@@ -6,10 +6,23 @@
 
         <div class="h-screen w-full flex flex-col justify-center items-center montserrat-bold">
 
-            <div class="progression flex w-1/2 justify-center items-center flex-row flex-no-wrap grid grid-cols-3 gap-50">
-                <div class="col-span-3 flex flex-col justify-center items-center rounded-20 shadow-lg bg-white text-black p-50">
+            <div class="w-full text-50 montserrat-bold mb-50 text-center">Hier kun je een overzicht zien van al je levels!</div>
+
+            <div class="progression flex w-1/2 rounded-20 bg-white p-50 shadow-md justify-center items-center flex-row flex-no-wrap grid grid-cols-2 gap-50">
+                <div class="col-span-1 flex flex-col justify-center items-center">
                     <div class="montserrat-regular text-25 mb-10">
-                        Dit is het module overzicht
+                        Levels
+                    </div>
+                    <div class="montserrat-bold text-50">
+                        2
+                    </div>
+                </div>
+                <div class="col-span-1 flex flex-col justify-center items-center">
+                    <div class="montserrat-regular text-25 mb-10">
+                        Modules
+                    </div>
+                    <div class="montserrat-bold text-50">
+                        3
                     </div>
                 </div>
             </div>

@@ -8,29 +8,29 @@
 
                 <div class="w-full text-50 montserrat-bold mb-50 text-center">{{ module.title }}</div>
 
-                <div class="progression flex w-1/2 justify-center items-center flex-row flex-no-wrap grid grid-cols-3 gap-50">
-                    <div class="col-span-1 flex flex-col justify-center items-center rounded-20 shadow-lg bg-white text-black p-50">
+                <div class="progression flex w-1/2 rounded-20 bg-white p-50 shadow-md justify-center items-center flex-row flex-no-wrap grid grid-cols-3 gap-50">
+                    <div class="col-span-1 flex flex-col justify-center items-center">
                         <div class="montserrat-regular text-25 mb-10">
                             Lessen
                         </div>
                         <div class="montserrat-bold text-50">
-                            {{ module.totalLessons  }} / {{ module.lessonsDone }}
+                            {{ module.total_lessons  }}
                         </div>
                     </div>
-                    <div class="col-span-1 flex flex-col justify-center items-center rounded-20 shadow-lg bg-white text-black p-50">
+                    <div class="col-span-1 flex flex-col justify-center items-center">
                         <div class="montserrat-regular text-25 mb-10">
-                            Lessen
+                            Onderwerpen
                         </div>
                         <div class="montserrat-bold text-50">
-                            <!-- {{ module.totalSubjects  }} / {{ modules.subjectsDone }} -->
+                            {{ module.total_subjects  }}
                         </div>
                     </div>
-                    <div class="col-span-1 flex flex-col justify-center items-center rounded-20 shadow-lg bg-white text-black p-50">
+                    <div class="col-span-1 flex flex-col justify-center items-center">
                         <div class="montserrat-regular text-25 mb-10">
-                            Lessen
+                            Opdrachten
                         </div>
                         <div class="montserrat-bold text-50">
-                            {{ module.totalLessons  }} / {{ module.lessonsDone }}
+                            {{ module.total_assignments }}
                         </div>
                     </div>
                 </div>
@@ -108,10 +108,18 @@
                 //     $modulesDone = count($this->modules->where('is_done', true));
                 //     return round($modulesDone / $totalModules * 100);
                 // }
-                module.total_lessons = module.lessons.length;
 
-                forEach(module.lessons, function(lesson, index){
-                    module.lessons[index].total_subjects = lesson.subjects.length;
+                module.total_lessons = module.lessons.length;
+                module.total_subjects = 0;
+                module.total_assignments = 0;
+
+                forEach(module.lessons, function(lesson){
+                    let subjectCount = lesson.subjects.length;
+                    module.total_subjects += subjectCount;
+                    forEach(lesson.subjects, function(subject){
+                        let assignmentCount = subject.assignments.length;
+                        module.total_assignments += assignmentCount;
+                    });
                 });
 
                 vm.module = module;
