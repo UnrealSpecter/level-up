@@ -22,7 +22,7 @@ class Assignment extends Resource
     * @var int
     */
     public static $priority = 7;
-    public static $displayInNavigation = false;
+    public static $displayInNavigation = true;
 
     /**
      * The model the resource corresponds to.
