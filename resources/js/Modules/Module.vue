@@ -72,8 +72,8 @@
             fetchModule(){
                 axios.get(`/modules/fetch/${this.module.id}`)
                 .then((response) => {
-                    this.module = this.calculateIsDone(response.data);
-                    this.progress = this.calculateProgress();
+                    this.calculateIsDone(response.data);
+                    // this.progress = this.calculateProgress();
                 }).catch((error) => {
                     console.log(error.response.data.errors)
                 });

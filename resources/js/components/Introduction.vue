@@ -6,7 +6,7 @@
         <div class="relative montserrat-bold w-full rounded-20 h-150 bg-white shadow-lg text-white text-40 mb-50 flex flex-row flex-no-wrap items-center justify-end whitespace-no-wrap truncate">
 
             <!-- LESSON TITLE -->
-            <div class="w-full truncate text-center text-black">introduction</div>
+            <div class="w-full truncate text-center text-black">Module Introductie</div>
 
             <div class="w-1/6 flex justify-center items-center absolute" @click="toggleAccordion()">
                 <img v-if="isOpen" src="/assets/icons/accordion/closed.svg" class="w-50 h-50 cursor-pointer">

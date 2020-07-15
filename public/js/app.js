@@ -306,8 +306,8 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get("/modules/fetch/".concat(this.module.id)).then(function (response) {
-        _this.module = _this.calculateIsDone(response.data);
-        _this.progress = _this.calculateProgress();
+        _this.calculateIsDone(response.data); // this.progress = this.calculateProgress();
+
       })["catch"](function (error) {
         console.log(error.response.data.errors);
       });
@@ -1000,7 +1000,7 @@ __webpack_require__.r(__webpack_exports__);
   props: ['subject', 'index'],
   data: function data() {
     return {
-      open: true
+      open: false
     };
   },
   methods: {
@@ -2546,7 +2546,7 @@ var render = function() {
       },
       [
         _c("div", { staticClass: "w-full truncate text-center text-black" }, [
-          _vm._v("introduction")
+          _vm._v("Module Introductie")
         ]),
         _vm._v(" "),
         _c(
@@ -4714,8 +4714,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/vagrant/code/level-up/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/vagrant/code/level-up/resources/sass/app.css */"./resources/sass/app.css");
+__webpack_require__(/*! F:\Code\Projects\level-up\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! F:\Code\Projects\level-up\resources\sass\app.css */"./resources/sass/app.css");
 
 
 /***/ })

@@ -84,7 +84,7 @@
         props: ['subject', 'index'],
         data() {
             return {
-                open: true,
+                open: false,
             }
         },
         methods: {
