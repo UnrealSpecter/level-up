@@ -22,6 +22,12 @@ class Assignment extends Resource
     * @var int
     */
     public static $priority = 7;
+
+    /**
+    * Display the resource in the sidebare navigation
+    *
+    * @var bool
+    */
     public static $displayInNavigation = true;
 
     /**

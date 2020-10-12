@@ -8,7 +8,8 @@ class Tag extends Model
 {
     protected $fillable = ['label', 'icon'];
 
-    public function materials(){
+    public function materials()
+    {
         return $this->belongsToMany(Material::class, 'material_tag');
     }
 }

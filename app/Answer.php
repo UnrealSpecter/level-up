@@ -8,7 +8,8 @@ class Answer extends Model
 {
     protected $fillable = ['answer', 'is_correct'];
 
-    public function assignment(){
+    public function assignment()
+    {
         return $this->belongsTo(Assignment::class);
     }
 

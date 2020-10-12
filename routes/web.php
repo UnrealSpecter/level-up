@@ -23,15 +23,21 @@ Auth::routes();
 Route::get('/dashboard', 'ShowDashboard')->name('dashboard');
 
 // COURSES OVERVIEW
-Route::get('/courses', 'CoursesController@index')->middleware('auth')->name('course.index');
+Route::get('/courses', 'CoursesController@index')
+    // ->middleware('auth')
+    ->name('course.index');
 
 // MODULES
 Route::get('/modules', 'ModulesController@index')
     ->middleware('auth')
     ->name('module.index');
 
-Route::get('/modules/{id}', 'ModulesController@show')->middleware('auth')->name('module.show');
-Route::put('/modules/{module}', 'ModulesController@update')->middleware('auth')->name('module.update');
+Route::get('/modules/{id}', 'ModulesController@show')
+    ->middleware('auth')->name('module.show');
+
+Route::put('/modules/{module}', 'ModulesController@update')
+    ->middleware('auth')->name('module.update');
+
 Route::get('/modules/fetch/{id}', 'ModulesController@fetchData');
 
 // MARK ASSIGNMENT AS DONE

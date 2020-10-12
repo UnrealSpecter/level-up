@@ -35,8 +35,4 @@ class User extends Authenticatable
         return $this->belongsToMany(Level::class, 'user_level');
     }
 
-    // public function getCurrentLevelAttribute(){
-    //     return $this->levels->where('is_done', true)->first() !== null ? $this->levels->where('is_done', true)->first() : $this->levels->first();
-    // }
-
 }

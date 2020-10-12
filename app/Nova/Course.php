@@ -52,7 +52,9 @@ class Course extends Resource
     {
         return [
             Heading::make('Basis Gegevens'),
-            ID::make()->sortable()->hideFromIndex(),
+            ID::make()
+                ->sortable()
+                ->hideFromIndex(),
             Text::make('title'),
             Textarea::make('description'),
             HasMany::make('Modules')

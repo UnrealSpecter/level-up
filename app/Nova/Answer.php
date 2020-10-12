@@ -18,6 +18,12 @@ class Answer extends Resource
     * @var int
     */
     public static $priority = 8;
+
+    /**
+    * Display the resource in the sidebare navigation
+    *
+    * @var bool
+    */
     public static $displayInNavigation = false;
 
     /**
@@ -53,7 +59,9 @@ class Answer extends Resource
     {
         return [
             Heading::make('Basis Gegevens'),
-            ID::make()->sortable()->hideFromIndex(),
+            ID::make()
+                ->sortable()
+                ->hideFromIndex(),
             Text::make('answer'),
             Boolean::make('is_correct'),
             BelongsTo::make('Assignment'),

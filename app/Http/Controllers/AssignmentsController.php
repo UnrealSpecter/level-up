@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Assignment;
 use App\Answer;
-use Illuminate\Http\Request;
 
 class AssignmentsController extends Controller
 {
@@ -17,7 +17,6 @@ class AssignmentsController extends Controller
         else {
             return response()->json(['error' => 'error']);
         }
-
     }
 
 }

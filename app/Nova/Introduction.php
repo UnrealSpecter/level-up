@@ -17,6 +17,12 @@ class Introduction extends Resource
      * @var string
      */
     public static $model = \App\Introduction::class;
+
+    /**
+    * Display the resource in the sidebare navigation
+    *
+    * @var bool
+    */
     public static $displayInNavigation = false;
 
     /**
