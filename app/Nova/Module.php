@@ -11,6 +11,7 @@ use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\HasOne;
 use Laravel\Nova\Fields\Heading;
+use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 use NovaAttachMany\AttachMany;
@@ -62,6 +63,8 @@ class Module extends Resource
             Text::make('title'),
             Text::make('code'),
             Textarea::make('description'),
+            Trix::make('Introductie Tekst', 'introduction'),
+
             Boolean::make('Is Done', function () {
                 return $this->isDone;
             }),
@@ -84,9 +87,6 @@ class Module extends Resource
                 ->showCounts()
                 ->fullWidth()
                 ->help('<b>Tip:</b> Voeg lessen toe.'),
-
-            // CREATE INTRODUCTION
-            NestedForm::make('Introduction')->open(true)
 
         ];
     }

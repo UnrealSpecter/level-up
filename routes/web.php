@@ -13,32 +13,41 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return redirect(route('login'));
-});
+Route::get('/', 'ShowLanding')
+    ->middleware('guest')
+    ->name('landing');
+
+Route::get('login', 'LoginController@showLoginForm')
+    ->name('login')
+    ->middleware('guest');
+
+Route::post('login', 'LoginController@login')
+    ->name('login.attempt')
+    ->middleware('guest');
 
 Auth::routes();
 
-// MAIN DASHBOARD ROUTE
-Route::get('/dashboard', 'ShowDashboard')->name('dashboard');
+Route::get('/dashboard', 'ShowDashboard')
+    ->middleware('auth')
+    ->name('dashboard');
 
-// COURSES OVERVIEW
 Route::get('/courses', 'CoursesController@index')
-    // ->middleware('auth')
+    ->middleware('auth')
     ->name('course.index');
 
-// MODULES
-Route::get('/modules', 'ModulesController@index')
+
+Route::get('/levels', 'LevelsController@index')
     ->middleware('auth')
-    ->name('module.index');
+    ->name('level.index');
 
 Route::get('/modules/{id}', 'ModulesController@show')
-    ->middleware('auth')->name('module.show');
+    ->middleware('auth')
+    ->name('module.show');
 
-Route::put('/modules/{module}', 'ModulesController@update')
-    ->middleware('auth')->name('module.update');
+Route::get('/modules/fetch/{id}', 'ModulesController@fetchData')
+    ->middleware('auth')
+    ->name('module.fetch');
 
-Route::get('/modules/fetch/{id}', 'ModulesController@fetchData');
-
-// MARK ASSIGNMENT AS DONE
-Route::put('/assignments/{assignment}', 'AssignmentsController@markAsDone');
+Route::put('/assignments/{assignment}', 'AssignmentsController@markAsDone')
+    ->middleware('auth')
+    ->name('assignment.complete');

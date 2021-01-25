@@ -1,0 +1,62 @@
+.montserrat-regular {
+    font-family: montserrat,sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.montserrat-medium {
+    font-family: montserrat, sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.montserrat-semibold {
+    font-family: montserrat, sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.montserrat-bold {
+    font-family: montserrat,sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.montserrat-extrabold {
+    font-family: montserrat, sans-serif;
+    font-weight: 800;
+    font-style: normal;
+}
+
+.montserrat-black {
+    font-family: montserrat,sans-serif;
+    font-weight: 900;
+    font-style: normal;
+}
+
+h1 {
+    font-family: montserrat, sans-serif;
+    font-weight: 700;
+    font-size: 30px
+}
+
+pre {
+    background: black;
+    color: white;
+    padding: 50px;
+    font-family: montserrat, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    border-radius: 5px;
+}
+
+div {
+    font-family: montserrat, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+blockquote {
+    font-family: montserrat;
+    font-size: 20px;
+}

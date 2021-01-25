@@ -12,12 +12,10 @@ class CoursesTableSeeder extends Seeder
      */
     public function run()
     {
-        
-
         \DB::table('courses')->delete();
-        
+
         \DB::table('courses')->insert(array (
-            0 => 
+            0 =>
             array (
                 'id' => 1,
                 'title' => 'Javascript',
@@ -26,7 +24,6 @@ class CoursesTableSeeder extends Seeder
                 'updated_at' => '2020-06-30 20:46:09',
             ),
         ));
-        
-        
+
     }
 }

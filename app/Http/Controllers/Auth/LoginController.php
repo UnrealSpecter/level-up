@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Inertia\Inertia;
 use Auth;
 
 class LoginController extends Controller
@@ -30,13 +31,13 @@ class LoginController extends Controller
     protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    * Show the application's login form.
+    *
+    * @return \Inertia\Response
+    */
+    public function showLoginForm()
     {
-        $this->middleware('guest')->except('logout');
+       return Inertia::render('Auth/Login');
     }
 
     public function logout() {

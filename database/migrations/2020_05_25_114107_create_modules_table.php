@@ -18,6 +18,7 @@ class CreateModulesTable extends Migration
             $table->string('title');
             $table->string('code');
             $table->longtext('description');
+            $table->longtext('introduction')->nullable();
             $table->unsignedBigInteger('course_id')->nullable();
             $table->foreign('course_id')->references('id')->on('courses');
             $table->timestamps();

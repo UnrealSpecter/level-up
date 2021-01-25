@@ -11,8 +11,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        //create a module
-        //create a lesson
         factory(App\Course::class, 3)->create();
 
         //create a user
@@ -77,26 +75,6 @@ class DatabaseSeeder extends Seeder
                 }
             }
         });
-
-        // $this->call(UsersTableSeeder::class);
-        // $this->call(LevelsTableSeeder::class);
-        // $this->call(CoursesTableSeeder::class);
-        // $this->call(ModulesTableSeeder::class);
-        // $this->call(IntroductionsTableSeeder::class);
-        // $this->call(LessonsTableSeeder::class);
-        // $this->call(SubjectsTableSeeder::class);
-        // $this->call(MaterialsTableSeeder::class);
-        // $this->call(TagsTableSeeder::class);
-        // $this->call(AssignmentsTableSeeder::class);
-        // $this->call(AnswersTableSeeder::class);
-        // $this->call(AnswersTableSeeder::class);
-        //
-        // $this->call(UserLevelTableSeeder::class);
-        // $this->call(LevelModuleTableSeeder::class);
-        // $this->call(ModuleLessonTableSeeder::class);
-        // $this->call(LessonSubjectTableSeeder::class);
-        // $this->call(SubjectAssignmentTableSeeder::class);
-        // $this->call(MaterialTagTableSeeder::class);
 
     }
 }
