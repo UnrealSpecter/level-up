@@ -25,7 +25,7 @@ class LevelModuleTableSeeder extends Seeder
                 'updated_at' => NULL,
             ),
         ));
-        
+
         
     }
 }

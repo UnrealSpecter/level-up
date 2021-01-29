@@ -11,7 +11,7 @@ use Laravel\Nova\Fields\Heading;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-use NovaAttachMany\AttachMany;
+// use NovaAttachMany\AttachMany;
 
 class Level extends Resource
 {
@@ -64,18 +64,18 @@ class Level extends Resource
 
             Heading::make('Modules')->hideFromDetail(),
             BelongsToMany::make('Modules'),
-            AttachMany::make('Modules')
-                ->showCounts()
-                ->fullWidth()
-                ->help('<b>Tip:</b> Voeg makkelijk levels toe.'),
+            // AttachMany::make('Modules')
+            //     ->showCounts()
+            //     ->fullWidth()
+            //     ->help('<b>Tip:</b> Voeg makkelijk levels toe.'),
 
 
-            Heading::make('Users')->hideFromDetail(),
-            BelongsToMany::make('Users'),
-            AttachMany::make('Users')
-                ->showCounts()
-                ->fullWidth()
-                ->help('<b>Tip:</b> Voeg makkelijk levels toe.'),
+            // Heading::make('Users')->hideFromDetail(),
+            // BelongsToMany::make('Users'),
+            // AttachMany::make('Users')
+            //     ->showCounts()
+            //     ->fullWidth()
+            //     ->help('<b>Tip:</b> Voeg makkelijk levels toe.'),
 
         ];
     }

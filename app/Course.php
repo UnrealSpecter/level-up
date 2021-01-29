@@ -8,14 +8,14 @@ class Course extends Model
 {
     protected $fillable = ['title', 'description'];
 
-    public function modules()
+    public function levels()
     {
-        return $this->hasMany(Module::class);
+        return $this->belongsToMany(Level::class, 'course_level');
     }
 
-    public function getModuleCountAttribute()
+    public function getLevelCountAttribute()
     {
-        return count($this->modules);
+        return count($this->levels);
     }
 
 }

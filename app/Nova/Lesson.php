@@ -12,6 +12,7 @@ use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 use NovaAttachMany\AttachMany;
+use Yassi\NestedForm\NestedForm;
 
 class Lesson extends Resource
 {
@@ -22,6 +23,8 @@ class Lesson extends Resource
     */
     public static $priority = 5;
 
+    public static $displayInNavigation = false;
+
     /**
      * The model the resource corresponds to.
      *
@@ -29,12 +32,16 @@ class Lesson extends Resource
      */
     public static $model = \App\Lesson::class;
 
-    /**
-     * The single value that should be used to represent the resource when being displayed.
-     *
-     * @var string
-     */
-    public static $title = 'title';
+    public static function label() {
+        return 'Studieblokken';
+    }
+
+    public static function singularLabel()
+    {
+     return 'Studieblok';
+    }
+
+    public static $title = "title";
 
     /**
      * The columns that should be searched.
@@ -64,17 +71,19 @@ class Lesson extends Resource
 
             Heading::make('Modules')->hideFromDetail(),
             BelongsToMany::make('Modules'),
-            AttachMany::make('Modules')
-                ->showCounts()
-                ->fullWidth()
-                ->help('<b>Tip:</b> Voeg modules toe.'),
+            // AttachMany::make('Modules')
+            //     ->showCounts()
+            //     ->fullWidth()
+            //     ->help('<b>Tip:</b> Voeg modules toe.'),
 
             Heading::make('Subjects')->hideFromDetail(),
+
+            NestedForm::make('Subjects'),
             BelongsToMany::make('Subjects'),
-            AttachMany::make('Subjects')
-                ->showCounts()
-                ->fullWidth()
-                ->help('<b>Tip:</b> Voeg subjects toe.'),
+            // AttachMany::make('Subjects')
+            //     ->showCounts()
+            //     ->fullWidth()
+            //     ->help('<b>Tip:</b> Voeg subjects toe.'),
 
         ];
     }

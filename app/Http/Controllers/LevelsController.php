@@ -18,7 +18,8 @@ class LevelsController extends Controller
     public function index()
     {
         return Inertia::render('Levels/Index', [
-            'user' => auth()->user()->with('levels.modules')->get()->first()
+            // 'user' => auth()->user()->with('levels.modules')->get()->first()
+            'user' => Level::with('modules')->get()
         ]);
     }
 

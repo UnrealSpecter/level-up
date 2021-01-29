@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "09651db2b6f55f01dfa86cb6c7d08c73",
+    "content-hash": "4ac07a049dcaaae8e2b389d09870b347",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1285,16 +1285,16 @@
         },
         {
             "name": "inertiajs/inertia-laravel",
-            "version": "v0.3.3",
+            "version": "v0.3.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/inertiajs/inertia-laravel.git",
-                "reference": "c1538774067b940d9fa21fea8c4d4e2faea24079"
+                "reference": "726b1e0d4fc399089dd29820a78e40d1c9aad2eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/inertiajs/inertia-laravel/zipball/c1538774067b940d9fa21fea8c4d4e2faea24079",
-                "reference": "c1538774067b940d9fa21fea8c4d4e2faea24079",
+                "url": "https://api.github.com/repos/inertiajs/inertia-laravel/zipball/726b1e0d4fc399089dd29820a78e40d1c9aad2eb",
+                "reference": "726b1e0d4fc399089dd29820a78e40d1c9aad2eb",
                 "shasum": ""
             },
             "require": {
@@ -1341,7 +1341,48 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-10-29T11:38:41+00:00"
+            "time": "2021-01-08T13:16:40+00:00"
+        },
+        {
+            "name": "invato/redirect-to-index",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/invato/redirect-to-index.git",
+                "reference": "f207a44c03075ec6eda911ee55246be9d67feefa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/invato/redirect-to-index/zipball/f207a44c03075ec6eda911ee55246be9d67feefa",
+                "reference": "f207a44c03075ec6eda911ee55246be9d67feefa",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Invato\\RedirectToIndex\\AssetServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Invato\\RedirectToIndex\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Laravel Nova package to redirect to the index view instead of the detail after creating or editing a resource.",
+            "keywords": [
+                "laravel",
+                "nova"
+            ],
+            "time": "2019-03-14T12:39:40+00:00"
         },
         {
             "name": "laravel/framework",
@@ -1585,6 +1626,9 @@
                 "admin",
                 "laravel"
             ],
+            "support": {
+                "source": "https://github.com/laravel/nova/tree/v3.13.0"
+            },
             "time": "2020-10-20T16:54:09+00:00"
         },
         {
@@ -2357,21 +2401,21 @@
         },
         {
             "name": "orangehill/iseed",
-            "version": "v2.6.4",
+            "version": "v3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/orangehill/iseed.git",
-                "reference": "03c73d3f829a74065e14a757f0d749ad4928a15f"
+                "reference": "874f77a20d49aa4c6c5fec2daf0daa070514e013"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orangehill/iseed/zipball/03c73d3f829a74065e14a757f0d749ad4928a15f",
-                "reference": "03c73d3f829a74065e14a757f0d749ad4928a15f",
+                "url": "https://api.github.com/repos/orangehill/iseed/zipball/874f77a20d49aa4c6c5fec2daf0daa070514e013",
+                "reference": "874f77a20d49aa4c6c5fec2daf0daa070514e013",
                 "shasum": ""
             },
             "require": {
                 "illuminate/support": "~5.5.0|~5.6.0|~5.7.0|~5.8.0|^6.0|^7.0|^8.0",
-                "php": "^7.2"
+                "php": "^7.2|^8.0"
             },
             "require-dev": {
                 "illuminate/filesystem": "~5.5.0|~5.6.0|~5.7.0|~5.8.0|^6.0|^7.0|^8.0",
@@ -2412,7 +2456,7 @@
                 "laravel",
                 "seed"
             ],
-            "time": "2020-09-10T06:25:21+00:00"
+            "time": "2021-01-14T15:34:12+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -8145,12 +8189,12 @@
             "version": "1.9.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/webmozart/assert.git",
+                "url": "https://github.com/webmozarts/assert.git",
                 "reference": "bafc69caeb4d49c39fd0779086c03a3738cbb389"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozart/assert/zipball/bafc69caeb4d49c39fd0779086c03a3738cbb389",
+                "url": "https://api.github.com/repos/webmozarts/assert/zipball/bafc69caeb4d49c39fd0779086c03a3738cbb389",
                 "reference": "bafc69caeb4d49c39fd0779086c03a3738cbb389",
                 "shasum": ""
             },
@@ -8192,7 +8236,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "invato/redirect-to-index": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

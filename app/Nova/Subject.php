@@ -24,6 +24,10 @@ class Subject extends Resource
     */
     public static $priority = 6;
 
+    public static function label() {
+        return 'Lessen';
+    }
+
     /**
      * The model the resource corresponds to.
      *
@@ -67,11 +71,12 @@ class Subject extends Resource
 
             Heading::make('Lessen')->hideFromDetail(),
             BelongsToMany::make('Lessons'),
-            AttachMany::make('Lessons')
-                ->showCounts()
-                ->showPreview()
-                ->fullWidth()
-                ->help('<b>Tip:</b> Voeg lessen toe.'),
+            // NestedForm::make('Lessons'),
+            // AttachMany::make('Lessons')
+            //     ->showCounts()
+            //     ->showPreview()
+            //     ->fullWidth()
+            //     ->help('<b>Tip:</b> Voeg lessen toe.'),
 
             BelongsToMany::make('Assignments'),
             NestedForm::make('Assignments'),

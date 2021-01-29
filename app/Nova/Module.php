@@ -34,13 +34,6 @@ class Module extends Resource
     public static $model = \App\Module::class;
 
     /**
-     * The single value that should be used to represent the resource when being displayed.
-     *
-     * @var string
-     */
-    public static $title = 'title';
-
-    /**
      * The columns that should be searched.
      *
      * @var array
@@ -48,6 +41,8 @@ class Module extends Resource
     public static $search = [
         'id', 'title', 'code', 'description'
     ];
+
+    public static $title = "title";
 
     /**
      * Get the fields displayed by the resource.
@@ -63,30 +58,26 @@ class Module extends Resource
             Text::make('title'),
             Text::make('code'),
             Textarea::make('description'),
-            Trix::make('Introductie Tekst', 'introduction'),
 
             Boolean::make('Is Done', function () {
                 return $this->isDone;
             }),
 
-            Heading::make('Course'),
-            BelongsTo::make('Course'),
-
             // ATTACH LEVELS
             Heading::make('Levels')->hideFromDetail(),
             BelongsToMany::make('Levels'),
-            AttachMany::make('Levels')
-                ->showCounts()
-                ->fullWidth()
-                ->help('<b>Tip:</b> Voeg levels toe.'),
+            // AttachMany::make('Levels')
+            //     ->showCounts()
+            //     ->fullWidth()
+            //     ->help('<b>Tip:</b> Voeg levels toe.'),
 
             // ATTACH LESSONS
-            Heading::make('Lessen')->hideFromDetail(),
+            NestedForm::make('Studieblokken', 'lessons', Lesson::class),
             BelongsToMany::make('Lessons'),
-            AttachMany::make('Lessons')
-                ->showCounts()
-                ->fullWidth()
-                ->help('<b>Tip:</b> Voeg lessen toe.'),
+            // AttachMany::make('Lessons')
+            //     ->showCounts()
+            //     ->fullWidth()
+            //     ->help('<b>Tip:</b> Voeg lessen toe.'),
 
         ];
     }

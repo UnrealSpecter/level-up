@@ -1,5 +1,5 @@
 <template>
-    <main class="w-screen min-h-screen flex">
+    <main class="min-w-screen min-h-screen flex">
         <div class="w-75 bg-black rounded-r-lg flex-shrink-0 fixed h-screen">
             <img class="mx-auto mt-5 mb-16" src="https://i.imgur.com/0eAT8tQ.png" alt="Level up!">
             <a href="/dashboard" class="text-white w-12 h-12 my-4 mx-auto block fill-current">

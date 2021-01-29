@@ -6,9 +6,12 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
-use Laravel\Nova\Fields\HasMany;
+use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Heading;
 use Laravel\Nova\Http\Requests\NovaRequest;
+
+use NovaAttachMany\AttachMany;
+
 
 class Course extends Resource
 {
@@ -18,6 +21,10 @@ class Course extends Resource
     * @var int
     */
     public static $priority = 2;
+
+    public static function label() {
+        return 'Leerlijnen';
+    }
 
     /**
      * The model the resource corresponds to.
@@ -56,8 +63,12 @@ class Course extends Resource
                 ->sortable()
                 ->hideFromIndex(),
             Text::make('title'),
-            Textarea::make('description'),
-            HasMany::make('Modules')
+            Textarea::make('description')->rules('required'),
+            BelongsToMany::make('Levels'),
+            AttachMany::make('Levels')
+                ->showCounts()
+                ->fullWidth()
+                ->help('<b>Tip:</b> Voeg Levels toe.'),
         ];
     }
 
