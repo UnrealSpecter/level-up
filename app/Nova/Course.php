@@ -10,8 +10,7 @@ use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Heading;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-use NovaAttachMany\AttachMany;
-
+use Yassi\NestedForm\NestedForm;
 
 class Course extends Resource
 {
@@ -24,6 +23,10 @@ class Course extends Resource
 
     public static function label() {
         return 'Leerlijnen';
+    }
+
+    public static function labelSinglular() {
+        return 'Leerlijn';
     }
 
     /**
@@ -64,11 +67,8 @@ class Course extends Resource
                 ->hideFromIndex(),
             Text::make('title'),
             Textarea::make('description')->rules('required'),
+            NestedForm::make('Levels', 'levels', Level::class),
             BelongsToMany::make('Levels'),
-            AttachMany::make('Levels')
-                ->showCounts()
-                ->fullWidth()
-                ->help('<b>Tip:</b> Voeg Levels toe.'),
         ];
     }
 

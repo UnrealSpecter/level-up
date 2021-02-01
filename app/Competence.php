@@ -8,8 +8,8 @@ class Competence extends Model
 {
     protected $fillable = ['description'];
 
-    public function level()
+    public function levels()
     {
-        return $this->belongsTo(Level::class);
+        return $this->belongsToMany(Level::class, 'competence_level');
     }
 }

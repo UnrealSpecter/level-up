@@ -12,12 +12,12 @@ class CoursesTableSeeder extends Seeder
      */
     public function run()
     {
-
+        
 
         \DB::table('courses')->delete();
-
+        
         \DB::table('courses')->insert(array (
-            0 =>
+            0 => 
             array (
                 'id' => 1,
                 'title' => 'Interface en Front-end',
@@ -25,7 +25,7 @@ class CoursesTableSeeder extends Seeder
                 'created_at' => '2020-06-30 20:46:09',
                 'updated_at' => '2021-01-29 10:35:44',
             ),
-            1 =>
+            1 => 
             array (
                 'id' => 2,
                 'title' => 'Programmeren',
@@ -33,8 +33,16 @@ class CoursesTableSeeder extends Seeder
                 'created_at' => '2021-01-29 10:29:40',
                 'updated_at' => '2021-01-29 10:30:16',
             ),
+            2 => 
+            array (
+                'id' => 3,
+                'title' => 'Engels',
+                'description' => 'Dit is de leerlijn engels.',
+                'created_at' => '2021-02-01 20:10:57',
+                'updated_at' => '2021-02-01 20:10:57',
+            ),
         ));
-
-
+        
+        
     }
 }

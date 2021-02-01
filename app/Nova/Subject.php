@@ -71,18 +71,12 @@ class Subject extends Resource
 
             Heading::make('Lessen')->hideFromDetail(),
             BelongsToMany::make('Lessons'),
-            // NestedForm::make('Lessons'),
-            // AttachMany::make('Lessons')
-            //     ->showCounts()
-            //     ->showPreview()
-            //     ->fullWidth()
-            //     ->help('<b>Tip:</b> Voeg lessen toe.'),
 
-            BelongsToMany::make('Assignments'),
-            NestedForm::make('Assignments'),
+            // BelongsToMany::make('Assignments'),
+            // NestedForm::make('Assignments'),
 
-            HasMany::make('Materials'),
-            NestedForm::make('Materials'),
+            // HasMany::make('Materials'),
+            // NestedForm::make('Materials'),
 
         ];
     }

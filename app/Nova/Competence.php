@@ -5,7 +5,8 @@ namespace App\Nova;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Textarea;
-use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Competence extends Resource
@@ -30,7 +31,7 @@ class Competence extends Resource
      * @var array
      */
     public static $search = [
-        'id',
+        'id', 'description'
     ];
 
     /**
@@ -43,8 +44,8 @@ class Competence extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Textarea::make('Beschrijving', 'description')->rules('required'),
-            BelongsTo::make('Level')
+            Text::make('Beschrijving', 'description'),
+            BelongsToMany::make('Levels')
         ];
     }
 

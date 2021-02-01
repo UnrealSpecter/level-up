@@ -9,6 +9,7 @@ use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Heading;
 use Laravel\Nova\Fields\BelongsToMany;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 use Yassi\NestedForm\NestedForm;
@@ -63,9 +64,10 @@ class Level extends Resource
 
             //ATTACH COMPETENCIES
             NestedForm::make('Competences'),
-
+            BelongsToMany::make('Competences'),
+            BelongsToMany::make('Courses'),
             // Heading::make('Modules')->hideFromDetail(),
-            BelongsToMany::make('Modules'),
+            // BelongsToMany::make('Modules'),
             // AttachMany::make('Modules')
             //     ->showCounts()
             //     ->fullWidth()

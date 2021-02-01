@@ -64,9 +64,7 @@ class Module extends Resource
             }),
 
             // ATTACH LEVELS
-            Heading::make('Levels')->hideFromDetail(),
             BelongsToMany::make('Levels'),
-            NestedForm::make('Levels'),
 
             // ATTACH LESSONS
             NestedForm::make('Studieblokken', 'lessons', Lesson::class),

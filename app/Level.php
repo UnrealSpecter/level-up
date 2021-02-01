@@ -20,7 +20,7 @@ class Level extends Model
 
     public function competences()
     {
-        return $this->hasMany(Competence::class);
+        return $this->belongsToMany(Competence::class, 'competence_level');
     }
 
     // public function users()

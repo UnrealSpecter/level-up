@@ -10,7 +10,7 @@ class Course extends Model
 
     public function levels()
     {
-        return $this->belongsToMany(Level::class, 'course_level');
+        return $this->belongsToMany(Level::class, 'course_level')->orderBy('title', 'asc');
     }
 
     public function getLevelCountAttribute()
