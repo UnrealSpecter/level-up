@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Level extends Model
 {
-    protected $fillable = ['title', 'description'];
+    protected $fillable = ['title'];
 
     public function courses()
     {
@@ -16,6 +16,11 @@ class Level extends Model
     public function modules()
     {
         return $this->belongsToMany(Module::class, 'level_module');
+    }
+
+    public function competences()
+    {
+        return $this->hasMany(Competence::class);
     }
 
     // public function users()

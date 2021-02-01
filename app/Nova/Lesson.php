@@ -69,17 +69,17 @@ class Lesson extends Resource
                 return $this->isDone;
             }),
 
-            Heading::make('Modules')->hideFromDetail(),
+            // Heading::make('Modules')->hideFromDetail(),
             BelongsToMany::make('Modules'),
             // AttachMany::make('Modules')
             //     ->showCounts()
             //     ->fullWidth()
             //     ->help('<b>Tip:</b> Voeg modules toe.'),
 
-            Heading::make('Subjects')->hideFromDetail(),
-
-            NestedForm::make('Subjects'),
-            BelongsToMany::make('Subjects'),
+            // Heading::make('Subjects')->hideFromDetail(),
+            //
+            // NestedForm::make('Subjects'),
+            // BelongsToMany::make('Subjects'),
             // AttachMany::make('Subjects')
             //     ->showCounts()
             //     ->fullWidth()

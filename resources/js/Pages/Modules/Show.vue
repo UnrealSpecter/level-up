@@ -1,13 +1,7 @@
 <template>
     <layout>
-        <container class="ml-48 mr-48">
-
-            <div class="h-screen w-full flex flex-col justify-center items-center montserrat-bold">
-
-                <div class="w-full text-50 montserrat-bold mb-50 text-center">{{ module.title }}</div>
-
-            </div>
-
+        <div class="flex flex-col ml-48 pr-40 flex-grow">
+            <module-header>{{ module.title }}</module-header>
             <!-- LESSON CONTENT -->
             <div class="w-full flex flex-col items-end relative">
 
@@ -17,10 +11,8 @@
                 </div>
 
                 <lesson v-for="lesson in module.lessons" :key="lesson.id" :index="lesson.id" :lesson="lesson"></lesson>
-
             </div>
-
-        </container>
+        </div>
     </layout>
 </template>
 
@@ -28,16 +20,18 @@
     // import { forEach } from "lodash";
     import Layout from '@/Shared/Layout'
     import Container from '@/Shared/Container'
+    import ModuleHeader from '@/Shared/ModuleHeader'
     import Lesson from '@/Shared/Lesson'
 
     export default {
         components: {
             Layout,
             Container,
+            ModuleHeader,
             Lesson
         },
         props: {
-            module: Object
+            module: Array
         },
         // data (){
         //     return {

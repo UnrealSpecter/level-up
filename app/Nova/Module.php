@@ -66,10 +66,7 @@ class Module extends Resource
             // ATTACH LEVELS
             Heading::make('Levels')->hideFromDetail(),
             BelongsToMany::make('Levels'),
-            // AttachMany::make('Levels')
-            //     ->showCounts()
-            //     ->fullWidth()
-            //     ->help('<b>Tip:</b> Voeg levels toe.'),
+            NestedForm::make('Levels'),
 
             // ATTACH LESSONS
             NestedForm::make('Studieblokken', 'lessons', Lesson::class),

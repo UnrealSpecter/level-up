@@ -32,7 +32,7 @@ class CoursesController extends Controller
         // ])->get();
 
         return Inertia::render('Courses/Index', [
-           'courses' => Course::with('levels.modules.lessons.subjects')->get()
+           'courses' => Course::with('levels.modules.lessons.subjects', 'levels.competences')->get()
         ]);
     }
 }

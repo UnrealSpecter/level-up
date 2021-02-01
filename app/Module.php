@@ -13,7 +13,7 @@ class Module extends Model
     //     return $this->hasOne(Introduction::class);
     // }
 
-    public function level()
+    public function levels()
     {
         return $this->belongsToMany(Level::class, 'level_module');
     }
