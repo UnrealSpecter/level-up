@@ -16,15 +16,6 @@ class MaterialTagTableSeeder extends Seeder
 
         \DB::table('material_tag')->delete();
         
-        \DB::table('material_tag')->insert(array (
-            0 => 
-            array (
-                'material_id' => 1,
-                'tag_id' => 1,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-            ),
-        ));
         
         
     }

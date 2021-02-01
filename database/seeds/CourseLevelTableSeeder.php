@@ -33,20 +33,41 @@ class CourseLevelTableSeeder extends Seeder
             ),
             2 => 
             array (
-                'course_id' => 2,
-                'level_id' => 2,
+                'course_id' => 4,
+                'level_id' => 4,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
             3 => 
             array (
+                'course_id' => 3,
+                'level_id' => 5,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            4 => 
+            array (
+                'course_id' => 5,
+                'level_id' => 6,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            5 => 
+            array (
                 'course_id' => 2,
-                'level_id' => 1,
+                'level_id' => 7,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            6 => 
+            array (
+                'course_id' => 2,
+                'level_id' => 8,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
         ));
-
+        
         
     }
 }

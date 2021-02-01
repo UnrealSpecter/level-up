@@ -25,6 +25,14 @@ class LessonSubjectTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
+            1 => 
+            array (
+                'id' => 2,
+                'lesson_id' => 3,
+                'subject_id' => 2,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
         ));
         
         

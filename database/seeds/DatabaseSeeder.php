@@ -69,7 +69,20 @@ class DatabaseSeeder extends Seeder
         //                         // create and assign answers to a assignment
         //                         $answers = factory(App\Answer::class, 3)->make();
         //                         $assignment->answers()->saveMany($answers);
-        //                     }
+        //                         $this->call(ActionEventsTableSeeder::class);
+        $this->call(CompetenceLevelTableSeeder::class);
+        $this->call(CompetencesTableSeeder::class);
+        $this->call(FailedJobsTableSeeder::class);
+        $this->call(MaterialTagTableSeeder::class);
+        $this->call(MaterialsTableSeeder::class);
+        $this->call(MigrationsTableSeeder::class);
+        $this->call(NovaPendingTrixAttachmentsTableSeeder::class);
+        $this->call(NovaTrixAttachmentsTableSeeder::class);
+        $this->call(PasswordResetsTableSeeder::class);
+        $this->call(TagsTableSeeder::class);
+        $this->call(UserLevelTableSeeder::class);
+        $this->call(UsersTableSeeder::class);
+    }
         //                 }
         //             }
         //         }

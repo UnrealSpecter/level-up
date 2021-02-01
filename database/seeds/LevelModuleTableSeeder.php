@@ -24,8 +24,36 @@ class LevelModuleTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
+            1 => 
+            array (
+                'level_id' => 1,
+                'module_id' => 2,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            2 => 
+            array (
+                'level_id' => 8,
+                'module_id' => 3,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            3 => 
+            array (
+                'level_id' => 7,
+                'module_id' => 4,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            4 => 
+            array (
+                'level_id' => 8,
+                'module_id' => 5,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
         ));
-
+        
         
     }
 }
