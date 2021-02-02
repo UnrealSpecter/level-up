@@ -60,7 +60,7 @@ class LevelsTableSeeder extends Seeder
                 'updated_at' => '2021-02-01 22:37:39',
             ),
         ));
-        
+
         
     }
 }

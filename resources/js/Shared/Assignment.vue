@@ -89,14 +89,9 @@
             },
             submit() {
                 if(this.selectedAnswer.is_correct){
-                    axios.put(`/assignments/${this.assignment.id}`)
-                        .then((response) => {
-                            eventBus.$emit('assignmentUpdated');
-                        })
-                        .catch((error) => {
-                            console.log(error.response.data.errors)
-                            // this.errors = new Errors(error.response.data.errors)
-                        });
+                    this.$inertia.put(`/assignments/${this.assignment.id}`, null, {
+                         preserveScroll: (page) => Object.keys(page.props.errors).length,
+                    })
                 }
                 else {
                     alert('error');

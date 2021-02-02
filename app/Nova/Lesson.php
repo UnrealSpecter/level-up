@@ -23,7 +23,7 @@ class Lesson extends Resource
     */
     public static $priority = 5;
 
-    public static $displayInNavigation = false;
+    public static $displayInNavigation = true;
 
     /**
      * The model the resource corresponds to.

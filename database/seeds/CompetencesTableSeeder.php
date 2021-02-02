@@ -129,8 +129,24 @@ class CompetencesTableSeeder extends Seeder
                 'created_at' => '2021-02-01 22:37:39',
                 'updated_at' => '2021-02-01 22:37:39',
             ),
+            14 => 
+            array (
+                'id' => 16,
+                'description' => 'qwdqwd',
+                'level_id' => NULL,
+                'created_at' => '2021-02-02 09:26:38',
+                'updated_at' => '2021-02-02 09:26:38',
+            ),
+            15 => 
+            array (
+                'id' => 17,
+                'description' => 'qwdqwdqw',
+                'level_id' => NULL,
+                'created_at' => '2021-02-02 09:26:49',
+                'updated_at' => '2021-02-02 09:26:49',
+            ),
         ));
-        
+
         
     }
 }

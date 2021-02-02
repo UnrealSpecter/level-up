@@ -33,8 +33,16 @@ class LessonSubjectTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
+            2 => 
+            array (
+                'id' => 3,
+                'lesson_id' => 2,
+                'subject_id' => 3,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
         ));
-        
+
         
     }
 }

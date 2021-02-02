@@ -21,12 +21,28 @@ class SubjectAssignmentTableSeeder extends Seeder
             array (
                 'subject_id' => 1,
                 'assignment_id' => 7,
-                'is_done' => 1,
+                'is_done' => 0,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            1 => 
+            array (
+                'subject_id' => 2,
+                'assignment_id' => 8,
+                'is_done' => 0,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            2 => 
+            array (
+                'subject_id' => 3,
+                'assignment_id' => 9,
+                'is_done' => 0,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
         ));
-        
+
         
     }
 }

@@ -16,7 +16,7 @@ class NovaPendingTrixAttachmentsTableSeeder extends Seeder
 
         \DB::table('nova_pending_trix_attachments')->delete();
         
-        
+
         
     }
 }

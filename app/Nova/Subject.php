@@ -72,11 +72,11 @@ class Subject extends Resource
             Heading::make('Lessen')->hideFromDetail(),
             BelongsToMany::make('Lessons'),
 
-            // BelongsToMany::make('Assignments'),
-            // NestedForm::make('Assignments'),
+            BelongsToMany::make('Assignments'),
+            NestedForm::make('Assignments'),
 
-            // HasMany::make('Materials'),
-            // NestedForm::make('Materials'),
+            HasMany::make('Materials'),
+            NestedForm::make('Materials'),
 
         ];
     }

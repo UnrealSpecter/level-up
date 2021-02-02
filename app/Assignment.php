@@ -23,13 +23,14 @@ class Assignment extends Model
     public function getIsDoneAttribute()
     {
         $parent = $this->subjects->first();
+        $parent->assignments()->updateExistingPivot($this->id, ['is_done' => 0]);
         return $parent->pivot->is_done ? true : false;
     }
 
     public function markAsDone()
     {
         $parent = $this->subjects()->first();
-        $parent->assignments()->updateExistingPivot($this->id, ['is_done' => 1]);
+        return $parent->assignments()->updateExistingPivot($this->id, ['is_done' => 1]);
     }
 
 

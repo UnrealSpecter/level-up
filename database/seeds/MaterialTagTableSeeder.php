@@ -16,7 +16,7 @@ class MaterialTagTableSeeder extends Seeder
 
         \DB::table('material_tag')->delete();
         
-        
+
         
     }
 }

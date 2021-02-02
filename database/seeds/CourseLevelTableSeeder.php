@@ -67,7 +67,7 @@ class CourseLevelTableSeeder extends Seeder
                 'updated_at' => NULL,
             ),
         ));
-        
+
         
     }
 }

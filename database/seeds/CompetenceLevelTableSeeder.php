@@ -97,8 +97,24 @@ class CompetenceLevelTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
+            10 => 
+            array (
+                'id' => 16,
+                'competence_id' => 16,
+                'level_id' => 9,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            11 => 
+            array (
+                'id' => 17,
+                'competence_id' => 17,
+                'level_id' => 9,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
         ));
-        
+
         
     }
 }

@@ -17,7 +17,7 @@
 </template>
 
 <script>
-    // import { forEach } from "lodash";
+    import forEach from 'lodash/foreach';
     import Layout from '@/Shared/Layout'
     import Container from '@/Shared/Container'
     import ModuleHeader from '@/Shared/ModuleHeader'
@@ -31,7 +31,7 @@
             Lesson
         },
         props: {
-            module: Array
+            module: Object
         },
         // data (){
         //     return {
@@ -40,8 +40,7 @@
         //     }
         // },
         created () {
-            // eventBus.$on('assignmentUpdated', this.fetchModule)
-            // this.calculateIsDone()
+            this.calculateIsDone();
         },
         methods: {
             fetchModule(){
@@ -53,13 +52,13 @@
                     console.log(error.response.data.errors)
                 });
             },
-            calculateIsDone(module = this.data){
-
-                let vm = this;
+            calculateIsDone(){
+                let module = this.module;
                 let moduleIsDone = true;
 
                 forEach(module.lessons, function(lesson, lessonIndex){
                     let lessonIsDone = true;
+                    console.log(lesson.subjects.length);
                     forEach(lesson.subjects, function(subject, subjectIndex){
                         let subjectIsDone = true;
                         forEach(subject.assignments, function(assignment){
@@ -84,22 +83,21 @@
                 //     return round($modulesDone / $totalModules * 100);
                 // }
 
-                module.total_lessons = module.lessons.length;
-                module.total_subjects = 0;
-                module.total_assignments = 0;
+                // module.total_lessons = module.lessons.length;
+                // module.total_subjects = 0;
+                // module.total_assignments = 0;
 
-                forEach(module.lessons, function(lesson){
-                    let subjectCount = lesson.subjects.length;
-                    module.total_subjects += subjectCount;
-                    forEach(lesson.subjects, function(subject){
-                        let assignmentCount = subject.assignments.length;
-                        module.total_assignments += assignmentCount;
-                    });
-                });
+                // forEach(module.lessons, function(lesson){
+                //     let subjectCount = lesson.subjects.length;
+                //     module.total_subjects += subjectCount;
+                //     forEach(lesson.subjects, function(subject){
+                //         let assignmentCount = subject.assignments.length;
+                //         module.total_assignments += assignmentCount;
+                //     });
+                // });
 
-                vm.module = module;
-                vm.module.is_done = moduleIsDone;
-
+                this.module = module;
+                this.module.is_done = moduleIsDone;
 
             },
         },

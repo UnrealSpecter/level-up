@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Assignment;
 use App\Answer;
+use Redirect;
 
 class AssignmentsController extends Controller
 {
@@ -12,10 +13,10 @@ class AssignmentsController extends Controller
     public function markAsDone(Assignment $assignment)
     {
         if($assignment->markAsDone()){
-            return response()->json(['success' => 'success']);
+            return Redirect::back();
         }
         else {
-            return response()->json(['error' => 'error']);
+            return abort(404);
         }
     }
 

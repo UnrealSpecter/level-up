@@ -16,7 +16,7 @@ class TagsTableSeeder extends Seeder
 
         \DB::table('tags')->delete();
         
-        
+
         
     }
 }

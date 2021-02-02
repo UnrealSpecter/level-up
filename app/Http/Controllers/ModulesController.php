@@ -16,7 +16,7 @@ class ModulesController extends Controller
     public function show($id)
     {
         return Inertia::render('Modules/Show', [
-            'module' => Module::with('lessons.subjects.assignments.answers', 'lessons.subjects.materials.tags')->get()->find($id)
+            'module' => Module::with('lessons.subjects.assignments.answers', 'lessons.subjects.materials')->get()->find($id)
         ]);
     }
 

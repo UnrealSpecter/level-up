@@ -42,7 +42,7 @@ class CoursesTableSeeder extends Seeder
                 'updated_at' => '2021-02-01 20:10:57',
             ),
         ));
-        
+
         
     }
 }

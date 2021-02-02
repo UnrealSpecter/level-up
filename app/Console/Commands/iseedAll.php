@@ -34,15 +34,15 @@ class iseedAll extends Command
      *
      * @return mixed
      */
-     public function handle()
+    public function handle()
     {
-        $dbName = env('DB_DATABASE');
-
-        $query =  \DB::select("SHOW TABLES WHERE 'Tables_in_$dbName' NOT LIKE 'migrations'");
+        $query =  \DB::select('SHOW TABLES WHERE Tables_in_levelup NOT LIKE "migrations"');
         $collection = new \Illuminate\Support\Collection($query);
-        $tables = $collection->implode("Tables_in_$dbName",',');
-
+        $tables = $collection->implode('Tables_in_levelup',',');
         $this->info('Calling iseed for all tables except migrations ...');
-        $this->call('iseed', ["tables" => $tables]);
+        $this->call('iseed', [
+            "tables" => $tables,
+            '--force' => true
+        ]);
     }
 }

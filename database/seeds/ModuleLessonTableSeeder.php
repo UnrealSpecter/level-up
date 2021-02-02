@@ -39,7 +39,7 @@ class ModuleLessonTableSeeder extends Seeder
                 'updated_at' => NULL,
             ),
         ));
-        
+
         
     }
 }

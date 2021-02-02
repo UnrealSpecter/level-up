@@ -30,7 +30,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => '2020-06-30 20:44:16',
             ),
         ));
-        
+
         
     }
 }

@@ -45,7 +45,7 @@ tussen TITLE-tags zetten',
                 'updated_at' => '2021-02-01 22:29:55',
             ),
         ));
-        
+
         
     }
 }

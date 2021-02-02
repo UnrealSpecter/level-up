@@ -16,7 +16,7 @@ class UserLevelTableSeeder extends Seeder
 
         \DB::table('user_level')->delete();
         
-        
+
         
     }
 }

@@ -25,8 +25,24 @@ class AssignmentsTableSeeder extends Seeder
                 'created_at' => '2020-06-30 21:17:08',
                 'updated_at' => '2020-06-30 21:17:43',
             ),
+            1 => 
+            array (
+                'id' => 8,
+                'title' => 'Hoe werkt een loop in Javascript?',
+                'description' => 'Kijk heel goed naar bron 2',
+                'created_at' => '2021-02-02 15:26:24',
+                'updated_at' => '2021-02-02 15:26:24',
+            ),
+            2 => 
+            array (
+                'id' => 9,
+                'title' => 'Wat is de correcte syntax voor een loop in Javascript?',
+                'description' => 'Tip! Kijk goed naar bron 2.',
+                'created_at' => '2021-02-02 15:29:37',
+                'updated_at' => '2021-02-02 15:29:37',
+            ),
         ));
-        
+
         
     }
 }

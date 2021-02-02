@@ -8,7 +8,7 @@
             <div class="h-full w-1/6 flex justify-center items-center">
 
                 <!-- SUBJECT IS DONE -->
-                <div v-if="subject.is_done" class="h-50 w-50 rounded-50 flex justify-center items-center text-white bg-black font-bold">
+                <div v-if="is_done" class="h-50 w-50 rounded-50 flex justify-center items-center text-white bg-black font-bold">
                     <!-- CHECKMARK SVG -->
                     <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                         <path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/>
@@ -32,14 +32,14 @@
         <div v-show="open" class="subject-wrapper w-5/6 flex justify-start flex-col">
 
             <!-- SUBJECT DESCRIPTION -->
-            <div class="w-full mb-50">
+            <div v-if="subject.assignments.length" class="flex flex-col p-50 shadow-lg rounded-20 bg-white mb-50">
                 <div class="lesson-description-title montserrat-bold text-40 text-black mb-25">Theorie</div>
                 <p class="lesson-description montserrat-regular text-20 text-black" v-html="subject.description"></p>
+                <iframe class="h-500 w-full" src="https://www.youtube.com/embed/eI4an8aSsgw"></iframe>
             </div>
 
             <!-- MATERIALS WRAPPER -->
-            <div v-if="subject.materials.length" class="flex flex-col">
-
+            <div v-if="subject.materials.length" class="flex flex-col p-50 shadow-lg rounded-20 bg-white mb-50">
                 <div class="material-title montserrat-bold text-40 text-black mb-25">Bronnen</div>
 
                 <!-- MATERIAL TAG FILTER -->
@@ -52,7 +52,7 @@
                 </div> -->
 
                 <!-- MATERIALS -->
-                <div class="w-full grid grid-cols-3 gap-50 mb-50">
+                <div class="w-full flex flex-col">
                     <material v-for="(material, index) in subject.materials" :key="index" :material="material"></material>
                 </div>
 
